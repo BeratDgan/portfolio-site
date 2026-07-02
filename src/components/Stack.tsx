@@ -72,7 +72,7 @@ function TechItem({ tech }: { tech: Tech }) {
 
 function LogoLoop({ row, reverse, duration }: { row: Tech[]; reverse?: boolean; duration: string }) {
   return (
-    <div className="marquee overflow-hidden py-5">
+    <div className="marquee overflow-hidden py-5 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
       <div
         className="marquee-track"
         data-reverse={reverse ? '' : undefined}

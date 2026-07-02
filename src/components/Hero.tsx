@@ -60,6 +60,7 @@ export default function Hero() {
   const { t } = useI18n()
   const clock = useLocalClock()
   const nameRef = useRef<HTMLHeadingElement>(null)
+  const closeBtnRef = useRef<HTMLButtonElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
 
   const nav = [
@@ -73,6 +74,7 @@ export default function Hero() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
+    if (menuOpen) closeBtnRef.current?.focus()
     return () => {
       document.body.style.overflow = ''
     }
@@ -125,7 +127,7 @@ export default function Hero() {
               <a
                 key={href}
                 href={href}
-                className="font-mono text-xs uppercase tracking-[0.15em] text-mute transition-colors hover:text-accent"
+                className="relative font-mono text-xs uppercase tracking-[0.15em] text-mute transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:text-ink hover:after:origin-left hover:after:scale-x-100"
               >
                 {label}
               </a>
@@ -153,6 +155,7 @@ export default function Hero() {
               B—D / {t.nav.menu}
             </span>
             <button
+              ref={closeBtnRef}
               type="button"
               aria-label={t.nav.closeMenu}
               onClick={() => setMenuOpen(false)}

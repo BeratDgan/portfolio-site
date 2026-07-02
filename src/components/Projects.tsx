@@ -99,7 +99,7 @@ export default function Projects() {
               <p className="mt-6 max-w-md text-[15px] leading-relaxed text-ink/75">
                 {t.projects.items[i].description}
               </p>
-              <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-10">
+              <div className="mt-auto flex flex-col items-start gap-5 pt-10">
                 <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-mute">
                   {project.tags.join(' / ')}
                 </p>

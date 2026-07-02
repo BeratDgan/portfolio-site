@@ -1,4 +1,5 @@
 import { LangProvider } from './i18n'
+import ScrollProgress from './components/ScrollProgress'
 import SmoothCursor from './components/SmoothCursor'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -11,6 +12,7 @@ import Contact from './components/Contact'
 export default function App() {
   return (
     <LangProvider>
+      <ScrollProgress />
       <SmoothCursor />
       <main id="top">
         <Hero />

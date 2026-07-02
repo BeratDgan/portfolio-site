@@ -58,11 +58,11 @@ export default function About() {
               <div className="flex aspect-4/5 items-center justify-center overflow-hidden">
                 <img
                   src={portraitImg}
-                  alt="Portrait"
-                  className="h-full w-full object-cover"
+                  alt="Berat Doğan"
+                  loading="lazy"
+                  className="h-full w-full object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
                 />
               </div>
-
             </div>
           </Reveal>
           <Reveal delay={0.2}>
