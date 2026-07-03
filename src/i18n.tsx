@@ -75,22 +75,22 @@ const en = {
       {
         role: 'End-to-end build',
         description:
-          'Recruitment-tracking web app taken all the way to production: Next.js and Supabase, packaged with Docker and running on AWS ECS Fargate behind an ALB with ACM-issued HTTPS and Cloudflare DNS. Every push ships through GitHub Actions.',
+          'Recruitment-tracking app taken from first commit to production, solo: Next.js and Supabase, packaged with Docker and running on AWS ECS Fargate behind an ALB with ACM-issued HTTPS and Cloudflare DNS. GitHub Actions is the only path to production — every merge ships itself, no manual deploys.',
       },
       {
         role: 'Scrum Master — team of 4',
         description:
-          'AI-powered technical interview simulator. Retrieval-augmented generation over 40,000+ questions in Qdrant, with LoRA/QLoRA fine-tuned models behind it. Led the four-person team as Scrum Master.',
+          'AI-powered technical interview simulator, built by a team of four with me as Scrum Master. Generic question banks make prep shallow, so answers are grounded in retrieval-augmented generation over 40,000+ questions in Qdrant — with LoRA/QLoRA fine-tuning to adapt models without retraining from scratch.',
       },
       {
         role: 'Backend & auth',
         description:
-          'Web app built on the Spotify API — backend design and the full Spotify OAuth 2.0 authorization flow.',
+          'Web app built on the Spotify API. I owned the backend and the complete OAuth 2.0 authorization flow — token exchange, refresh and session handling, implemented end to end against the spec.',
       },
       {
         role: 'Realtime backend',
         description:
-          'Real-time broadcast backend built on Node.js and Socket.io — live rooms, viewers and events over persistent connections.',
+          'Real-time broadcast backend on Node.js and Socket.io — live rooms, viewers and events over persistent connections. Built to learn what realtime actually demands: connection lifecycle, rooms and event fan-out.',
       },
     ],
   },
@@ -189,22 +189,22 @@ const tr: Dict = {
       {
         role: 'Uçtan uca',
         description:
-          "Production'a kadar götürülmüş işe alım takip uygulaması: Next.js ve Supabase, Docker ile paketlenip AWS ECS Fargate'te çalışıyor — önünde ALB, ACM'den HTTPS, Cloudflare DNS. Her push GitHub Actions üzerinden yayına çıkıyor.",
+          "İlk commit'ten production'a tek başıma götürdüğüm işe alım takip uygulaması: Next.js ve Supabase, Docker ile paketlenip AWS ECS Fargate'te çalışıyor — önünde ALB, ACM'den HTTPS, Cloudflare DNS. Production'a giden tek yol GitHub Actions — her merge kendini yayınlar, manuel deploy yok.",
       },
       {
         role: 'Scrum Master — 4 kişilik ekip',
         description:
-          'Yapay zekâ destekli teknik mülakat simülatörü. Qdrant üzerinde 40.000+ soruyla retrieval-augmented generation, arkasında LoRA/QLoRA ile fine-tune edilmiş modeller. Dört kişilik ekibi Scrum Master olarak yönettim.',
+          "Dört kişilik ekiple kurduğumuz, Scrum Master'lığını üstlendiğim yapay zekâ destekli teknik mülakat simülatörü. Hazır soru bankaları yüzeysel kaldığı için cevaplar Qdrant üzerinde 40.000+ soruyla retrieval-augmented generation'a dayanıyor — modelleri sıfırdan eğitmeden uyarlamak için de LoRA/QLoRA fine-tuning.",
       },
       {
         role: 'Backend & auth',
         description:
-          'Spotify API üzerine kurulu web uygulaması — backend tasarımı ve uçtan uca Spotify OAuth 2.0 yetkilendirme akışı.',
+          "Spotify API üzerine kurulu web uygulaması. Backend ve uçtan uca OAuth 2.0 yetkilendirme akışı bendeydi — token değişimi, refresh ve oturum yönetimi dahil, spesifikasyona göre kuruldu.",
       },
       {
         role: 'Gerçek zamanlı backend',
         description:
-          "Node.js ve Socket.io ile gerçek zamanlı yayın backend'i — kalıcı bağlantılar üzerinden canlı odalar, izleyiciler ve olaylar.",
+          "Node.js ve Socket.io ile gerçek zamanlı yayın backend'i — kalıcı bağlantılar üzerinden canlı odalar, izleyiciler ve olaylar. Gerçek zamanlının asıl zor kısmını öğrenmek için kuruldu: bağlantı yaşam döngüsü, odalar ve event dağıtımı.",
       },
     ],
   },
