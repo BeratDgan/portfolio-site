@@ -25,7 +25,7 @@ const en = {
     roleB: 'DevOps',
     roleC: 'Platform Engineering',
     blurb:
-      'I build backend and AI systems, then ship them the way production demands — containerized, behind a pipeline, on real cloud infrastructure.',
+      'I build backend and AI systems, then ship them the way production demands — containerized, behind a pipeline, on real cloud infrastructure. Class of 2027, open to internships and junior roles.',
     viewProjects: 'View projects',
     getInTouch: 'Get in touch',
     openToWork: 'Open to work',
@@ -139,7 +139,7 @@ const tr: Dict = {
     roleB: 'DevOps',
     roleC: 'Platform Mühendisliği',
     blurb:
-      "Backend ve yapay zekâ sistemleri kuruyor, sonra onları production'ın gerektirdiği gibi gönderiyorum — konteynerize edilmiş, pipeline arkasında, gerçek bulut altyapısında.",
+      "Backend ve yapay zekâ sistemleri kuruyor, sonra onları production'ın gerektirdiği gibi gönderiyorum — konteynerize edilmiş, pipeline arkasında, gerçek bulut altyapısında. 2027 mezunuyum; staj ve junior rollere açığım.",
     viewProjects: 'Projelere git',
     getInTouch: 'İletişime geç',
     openToWork: 'Çalışmaya açık',
