@@ -1,0 +1,226 @@
+<!doctype html>
+<!--
+  CV source of truth. Regenerate the PDF after editing:
+    node cv/render-pdf.mjs
+  (needs playwright: npx playwright install chromium)
+  Output: public/Berat_Dogan_CV.pdf
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Berat Doğan — CV</title>
+<style>
+  :root {
+    --navy: #1f4e79;
+    --text: #1c1c1c;
+    --gray: #595959;
+    --rule: #9db3c8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4; margin: 13mm 15mm; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    line-height: 1.32;
+    color: var(--text);
+  }
+  a { color: #0563c1; text-decoration: none; }
+
+  header { text-align: center; margin-bottom: 10pt; }
+  header h1 {
+    font-size: 24pt;
+    letter-spacing: 0.5pt;
+    color: var(--navy);
+  }
+  header .subtitle { font-size: 11.5pt; color: var(--gray); margin-top: 2pt; }
+  header .contact { font-size: 9.5pt; color: var(--gray); margin-top: 3pt; }
+  header .contact b { color: var(--text); font-weight: normal; }
+
+  section { margin-top: 9pt; }
+  h2 {
+    font-size: 11pt;
+    letter-spacing: 0.4pt;
+    text-transform: uppercase;
+    color: var(--navy);
+    border-bottom: 1.2pt solid var(--rule);
+    padding-bottom: 2pt;
+    margin-bottom: 5pt;
+  }
+
+  ul { list-style: none; }
+  ul li {
+    padding-left: 12pt;
+    position: relative;
+    margin-bottom: 2.5pt;
+  }
+  ul li::before {
+    content: "•";
+    position: absolute;
+    left: 2pt;
+    color: var(--text);
+  }
+
+  .entry { margin-bottom: 7pt; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8pt;
+  }
+  .entry-head h3 { font-size: 10.5pt; }
+  .entry-head h3 .role { font-weight: normal; color: var(--gray); font-size: 9.5pt; }
+  .entry-head .date { font-style: italic; color: var(--gray); font-size: 9.5pt; white-space: nowrap; }
+  .entry .sub { font-style: italic; color: var(--gray); font-size: 9.5pt; margin-bottom: 2pt; }
+  .entry ul { margin-top: 1.5pt; }
+  .tech { font-size: 9pt; color: var(--gray); font-style: italic; margin-top: 2pt; }
+  .tech b { font-style: normal; color: var(--text); }
+
+  .skills p { margin-bottom: 2pt; }
+  .skills b { color: var(--text); }
+
+  .langs { display: flex; gap: 24pt; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BERAT DOĞAN</h1>
+  <div class="subtitle">Cloud / DevOps / Platform Engineering Intern</div>
+  <div class="contact">Elazığ, Turkey &nbsp;•&nbsp; +90 555 099 04 59 &nbsp;•&nbsp; dgan.berat@gmail.com</div>
+  <div class="contact"><a href="https://linkedin.com/in/beratdgan">linkedin.com/in/beratdgan</a> &nbsp;•&nbsp; <a href="https://github.com/BeratDgan">github.com/BeratDgan</a></div>
+</header>
+
+<section>
+  <h2>Highlight Reel</h2>
+  <ul>
+    <li>DevOps Engineer Intern at Soliner (Jul 2026 – Present), working on containers, CI/CD pipelines and cloud infrastructure.</li>
+    <li>Hands-on AWS deployment experience with ECS Fargate, ECR, ALB, ACM, IAM, Secrets Manager, CloudWatch, EventBridge, SNS, and Cloudflare DNS.</li>
+    <li>Containerized and deployed a production web application using Docker, GitHub Actions CI/CD, and AWS-managed infrastructure.</li>
+    <li>Built operational practices around monitoring, alerting, logging, DNS/SSL, secret management, and structured production debugging.</li>
+    <li>Backend and AI engineering background spanning Dockerized services, RAG systems, vector databases, OAuth integrations, and agile team leadership.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Soliner <span class="role">— DevOps Engineer Intern</span></h3>
+      <span class="date">Jul 2026 – Present</span>
+    </div>
+    <ul>
+      <li>Working on the delivery side of production systems — containerization, CI/CD pipelines and cloud infrastructure.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <p><b>Cloud &amp; DevOps:</b> AWS ECS Fargate, ECR, EC2, S3, Lambda, IAM, VPC, ALB, ACM, Secrets Manager, CloudWatch, EventBridge, SNS; Docker, GitHub Actions, CI/CD, Linux, Cloudflare DNS</p>
+    <p><b>Backend:</b> Node.js, TypeScript/JavaScript, Python, C#/.NET Core, REST APIs, WebSocket, OAuth 2.0</p>
+    <p><b>Databases:</b> PostgreSQL, MongoDB, Redis, Qdrant, ChromaDB</p>
+    <p><b>AI / Data:</b> RAG, LLMs, vector search, Selenium, data pipelines</p>
+    <p><b>Practices:</b> Monitoring, logging, alerting, root cause analysis, Agile/Scrum</p>
+  </div>
+</section>
+
+<section>
+  <h2>Technical Projects</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Trackruit — Job Application Tracking Platform <span class="role">— DevOps / Cloud Focus</span></h3>
+    </div>
+    <div class="sub">Next.js, Supabase, Google Calendar API</div>
+    <ul>
+      <li>Containerized the application with a multi-stage Dockerfile, .dockerignore, build-time arguments, and standalone output configuration to create a reproducible cloud deployment artifact.</li>
+      <li>Deployed Docker images to AWS ECS Fargate through ECR, configuring the cluster, task definition, service, CPU/memory, ports, environment variables, and CloudWatch logging.</li>
+      <li>Configured ALB target groups, listeners, health checks, security groups, Cloudflare DNS, AWS ACM HTTPS, HTTP-to-HTTPS redirect, and Cloudflare Full SSL for secure production traffic.</li>
+      <li>Built a GitHub Actions CI/CD pipeline to validate development branches and automatically build, push, and deploy Docker images to ECS on production merges.</li>
+      <li>Hardened operations with IAM least-privilege deployment access, AWS Secrets Manager runtime secrets, CloudWatch alarms, SNS notifications, EventBridge task alerts, and structured root-cause debugging.</li>
+    </ul>
+    <div class="tech"><b>Tech:</b> AWS ECS Fargate, ECR, ALB, ACM, IAM, Secrets Manager, CloudWatch, EventBridge, SNS, Cloudflare DNS, Docker, GitHub Actions</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>PrePath — AI-Powered Technical Interview Simulator <span class="role">— Technical Team Lead &amp; Scrum Master | Academic Project</span></h3>
+      <span class="date">2024–2025</span>
+    </div>
+    <ul>
+      <li>Led a 4-engineer agile team by translating product requirements into sprint plans, backend ownership boundaries, and integration checkpoints.</li>
+      <li>Built a RAG backend with Qdrant and Dockerized services, indexing 40,000+ scraped records for semantic interview-question retrieval.</li>
+      <li>Implemented service health checks and structured logging to support debugging, reliability reviews, and future cloud monitoring integration.</li>
+      <li>Fine-tuned open-source LLMs with LoRA/QLoRA and automated data-processing workflows for interview-question extraction and ranking.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Lyricly.tech — Spotify API Web Application <span class="role">— Backend Developer | Production Deployment</span></h3>
+      <span class="date">2024</span>
+    </div>
+    <ul>
+      <li>Built and deployed backend services for a production web application integrating Spotify OAuth 2.0, token handling, and user-facing API workflows.</li>
+      <li>Managed release configuration, environment variables, secrets handling, API health monitoring, and rate-limit debugging to improve operational reliability.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Live Streaming Platform <span class="role">— Backend Developer | Personal Project</span></h3>
+      <span class="date">2024</span>
+    </div>
+    <ul>
+      <li>Architected a real-time Node.js and Socket.io backend with event-driven WebSocket flows for streaming sessions and connection state management.</li>
+      <li>Added reconnect handling and structured event logging to support session continuity, production debugging, and root-cause analysis.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>Fırat University</h3>
+    </div>
+    <div class="sub">B.S. in Software Engineering (Expected 2027) &nbsp;•&nbsp; Elazığ, Turkey</div>
+    <ul>
+      <li>Relevant coursework: Cloud Solutions: AWS (AA), Algorithm Analysis (BA)</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <h3>University of Maribor</h3>
+      <span class="date">Feb 2025 – Jul 2025</span>
+    </div>
+    <div class="sub">Erasmus+ Exchange — Computer Science &nbsp;•&nbsp; Maribor, Slovenia</div>
+    <ul>
+      <li>Relevant coursework: Algorithms and Data Structures (B)</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Certifications</h2>
+  <div class="skills">
+    <p><b>Cloud &amp; DevOps:</b> Getting Started with Serverless (AWS Educate); Intermediate Docker (DataCamp); Introduction to Docker &amp; Kubernetes (DataCamp); Containerization &amp; Virtualization Concepts (DataCamp); Linux 301 (Turkcell Geleceği Yazanlar)</p>
+    <p><b>Backend &amp; Programming:</b> Problem Solving (HackerRank); .NET Core Beginner Path (Patika.dev); Get Started with Redis (Redis University)</p>
+    <p><b>AI:</b> Prompting Essentials (Google / Coursera, Jul 2025)</p>
+  </div>
+</section>
+
+<section>
+  <h2>Languages</h2>
+  <div class="langs">
+    <span><b>Turkish:</b> Native</span>
+    <span><b>English:</b> B2 – Professional Working Proficiency</span>
+  </div>
+</section>
+
+</body>
+</html>

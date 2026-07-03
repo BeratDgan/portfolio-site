@@ -26,6 +26,29 @@ export default function Contact() {
         </h2>
       </Reveal>
 
+      <Reveal delay={0.15}>
+        <a
+          href="/Berat_Dogan_CV.pdf"
+          download
+          className="group mt-14 flex max-w-xl items-center justify-between gap-6 border border-ground/30 px-6 py-5 transition-colors duration-300 hover:border-accent hover:bg-accent md:mt-16 md:px-8 md:py-6"
+        >
+          <span>
+            <span className="block font-mono text-[10px] tracking-[0.2em] uppercase text-ground/50 transition-colors group-hover:text-ground/80">
+              {t.contact.cvMeta}
+            </span>
+            <span className="mt-2 block font-display text-2xl leading-none font-bold tracking-tight uppercase md:text-3xl">
+              {t.contact.cvTitle}
+            </span>
+          </span>
+          <span
+            className="flex h-12 w-12 shrink-0 items-center justify-center border border-ground/40 font-mono text-lg transition-all duration-300 group-hover:translate-y-1 group-hover:border-ground md:h-14 md:w-14"
+            aria-hidden="true"
+          >
+            ↓
+          </span>
+        </a>
+      </Reveal>
+
       <Reveal delay={0.2}>
         <a
           href="mailto:dgan.berat@gmail.com"

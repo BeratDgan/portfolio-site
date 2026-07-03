@@ -270,6 +270,13 @@ export default function Hero() {
           <span className="cursor-blink inline-block h-3 w-[7px] bg-accent" aria-hidden="true" />
           {t.hero.openToWork}
         </span>
+        <a
+          href="/Berat_Dogan_CV.pdf"
+          download
+          className="text-ink transition-colors hover:text-accent"
+        >
+          CV.PDF <span className="text-accent">↓</span>
+        </a>
         <span className="hidden sm:block">Portfolio — v1.0</span>
       </footer>
     </section>
