@@ -43,6 +43,7 @@ export default function About() {
         <div className="md:col-span-4 md:col-start-9">
           <Reveal delay={0.1}>
             {/* macOS Safari window frame around the portrait */}
+            <div className="group">
             <div className="border border-line">
               <div className="flex items-center gap-2 border-b border-line px-3 py-2.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" aria-hidden="true" />
@@ -60,9 +61,16 @@ export default function About() {
                   src={portraitImg}
                   alt="Berat Doğan"
                   loading="lazy"
-                  className="h-full w-full object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
+                  className="h-full w-full object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
                 />
               </div>
+            </div>
+            <p className="hover-hint mt-3 items-center justify-end gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-mute transition-opacity duration-500 group-hover:opacity-0">
+              <span className="nudge inline-block text-accent" aria-hidden="true">
+                ↖
+              </span>
+              {t.about.portraitHint}
+            </p>
             </div>
           </Reveal>
           <Reveal delay={0.2}>

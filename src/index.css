@@ -120,6 +120,31 @@
   transform: translateY(0);
 }
 
+/* portrait hover cue — only meaningful where hover exists */
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-3px, -3px);
+  }
+}
+
+.nudge {
+  animation: nudge 1.8s ease-in-out infinite;
+}
+
+.hover-hint {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hover-hint {
+    display: flex;
+  }
+}
+
 /* horizontal scroller without a visible scrollbar */
 .no-scrollbar {
   scrollbar-width: none;
