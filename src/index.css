@@ -132,19 +132,6 @@
   }
 }
 
-.nudge {
-  animation: nudge 1.8s ease-in-out infinite;
-}
-
-.hover-hint {
-  display: none;
-}
-@media (hover: hover) and (pointer: fine) {
-  .hover-hint {
-    display: flex;
-  }
-}
-
 .pointer-hint-arrow {
   animation: nudge 2.2s ease-in-out infinite;
 }

@@ -93,12 +93,9 @@ export default function About() {
               </div>
 
               {/* hand-drawn cue curving up into the photo's corner — fades once hovered */}
-              <div className="hover-hint pointer-hint mt-2 items-end justify-end gap-2 transition-opacity duration-500 group-hover:opacity-0">
-                <span className="pointer-hint-label pb-1 font-mono text-[10px] tracking-[0.15em] text-mute uppercase">
-                  {t.about.portraitHint}
-                </span>
+              <div className="pointer-hint absolute -right-3 -bottom-14 flex items-end gap-2 transition-opacity duration-500 group-hover:opacity-0 md:-right-5 md:-bottom-16">
                 <svg
-                  className="pointer-hint-arrow h-9 w-9 shrink-0"
+                  className="pointer-hint-arrow h-14 w-14 shrink-0"
                   viewBox="0 0 44 44"
                   fill="none"
                   aria-hidden="true"
@@ -107,22 +104,25 @@ export default function About() {
                     className="pointer-hint-curve"
                     d="M36 34c-15 0-19-11-19-17S13 6 6 6"
                     stroke="#e8490f"
-                    strokeWidth="2"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                   />
                   <path
                     d="M6 6l9 3M6 6l3 9"
                     stroke="#e8490f"
-                    strokeWidth="2"
+                    strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>
+                <span className="pointer-hint-label pb-3 font-mono text-xs font-bold tracking-[0.15em] text-ink uppercase">
+                  {t.about.portraitHint}
+                </span>
               </div>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <dl className="mt-8">
+            <dl className="mt-20 md:mt-24">
               {t.about.facts.map(([label, value]) => (
                 <div
                   key={label}
