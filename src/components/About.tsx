@@ -43,34 +43,56 @@ export default function About() {
         <div className="md:col-span-4 md:col-start-9">
           <Reveal delay={0.1}>
             {/* macOS Safari window frame around the portrait */}
-            <div className="group">
-            <div className="border border-line">
-              <div className="flex items-center gap-2 border-b border-line px-3 py-2.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" aria-hidden="true" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" aria-hidden="true" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden="true" />
-                <span className="flex flex-1 justify-center">
-                  <span className="bg-line/40 px-5 py-1 font-mono text-[10px] tracking-[0.1em] text-mute">
-                    berat.dev/portrait
+            <div className="group relative">
+              <div className="border border-line">
+                <div className="flex items-center gap-2 border-b border-line px-3 py-2.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" aria-hidden="true" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" aria-hidden="true" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden="true" />
+                  <span className="flex flex-1 justify-center">
+                    <span className="bg-line/40 px-5 py-1 font-mono text-[10px] tracking-[0.1em] text-mute">
+                      berat.dev/portrait
+                    </span>
                   </span>
+                  <span className="w-[46px]" aria-hidden="true" />
+                </div>
+                <div className="flex aspect-4/5 items-center justify-center overflow-hidden">
+                  <img
+                    src={portraitImg}
+                    alt="Berat Doğan"
+                    loading="lazy"
+                    className="h-full w-full object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                  />
+                </div>
+              </div>
+
+              {/* hand-drawn cue curving up into the photo's corner — fades once hovered */}
+              <div className="hover-hint pointer-hint mt-2 items-end justify-end gap-2 transition-opacity duration-500 group-hover:opacity-0">
+                <span className="pointer-hint-label pb-1 font-mono text-[10px] tracking-[0.15em] text-mute uppercase">
+                  {t.about.portraitHint}
                 </span>
-                <span className="w-[46px]" aria-hidden="true" />
+                <svg
+                  className="pointer-hint-arrow h-9 w-9 shrink-0"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    className="pointer-hint-curve"
+                    d="M36 34c-15 0-19-11-19-17S13 6 6 6"
+                    stroke="#e8490f"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M6 6l9 3M6 6l3 9"
+                    stroke="#e8490f"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </div>
-              <div className="flex aspect-4/5 items-center justify-center overflow-hidden">
-                <img
-                  src={portraitImg}
-                  alt="Berat Doğan"
-                  loading="lazy"
-                  className="h-full w-full object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
-                />
-              </div>
-            </div>
-            <p className="hover-hint mt-3 items-center justify-end gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-mute transition-opacity duration-500 group-hover:opacity-0">
-              <span className="nudge inline-block text-accent" aria-hidden="true">
-                ↖
-              </span>
-              {t.about.portraitHint}
-            </p>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
