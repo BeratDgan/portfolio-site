@@ -39,24 +39,24 @@ export default function About() {
             </p>
           </Reveal>
 
-          {/* decorative flourish filling the whitespace below the bio, echoing back up at the headline */}
+          {/* decorative flourish filling the whitespace below the bio — a loose hand-drawn line curling up toward the portrait */}
           <Reveal delay={0.3} className="hidden md:block">
             <svg
-              className="big-scribble mt-14 h-96 w-80"
+              className="big-scribble mt-8 ml-auto h-96 w-80"
               viewBox="0 0 300 320"
               fill="none"
               aria-hidden="true"
             >
               <path
                 className="big-scribble-path"
-                d="M16 298C10 230 78 190 118 222C158 254 130 300 84 288C42 278 54 206 112 188C198 158 232 78 214 20"
+                d="M30 260C70 280 100 230 70 190C40 150 0 160 10 110C20 60 90 40 140 60C180 76 170 110 210 100C240 92 230 60 260 40"
                 stroke="#e8490f"
                 strokeWidth="3"
                 strokeLinecap="round"
               />
               <path
                 className="big-scribble-head"
-                d="M214 20L232 42M214 20L192 36"
+                d="M260 40L238 52M260 40L250 64"
                 stroke="#e8490f"
                 strokeWidth="3"
                 strokeLinecap="round"
@@ -91,38 +91,10 @@ export default function About() {
                   />
                 </div>
               </div>
-
-              {/* hand-drawn cue curving up into the photo's corner — fades once hovered */}
-              <div className="pointer-hint absolute -right-3 -bottom-14 flex items-end gap-2 transition-opacity duration-500 group-hover:opacity-0 md:-right-5 md:-bottom-16">
-                <svg
-                  className="pointer-hint-arrow h-14 w-14 shrink-0"
-                  viewBox="0 0 44 44"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path
-                    className="pointer-hint-curve"
-                    d="M36 34c-15 0-19-11-19-17S13 6 6 6"
-                    stroke="#e8490f"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M6 6l9 3M6 6l3 9"
-                    stroke="#e8490f"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="pointer-hint-label pb-3 font-mono text-xs font-bold tracking-[0.15em] text-ink uppercase">
-                  {t.about.portraitHint}
-                </span>
-              </div>
             </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <dl className="mt-20 md:mt-24">
+            <dl className="mt-8">
               {t.about.facts.map(([label, value]) => (
                 <div
                   key={label}

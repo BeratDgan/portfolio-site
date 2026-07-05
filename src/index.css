@@ -122,34 +122,6 @@
 
 /* portrait hover cue — only meaningful where hover exists */
 
-@keyframes nudge {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-3px, -3px);
-  }
-}
-
-.pointer-hint-arrow {
-  animation: nudge 2.2s ease-in-out infinite;
-}
-.pointer-hint-curve {
-  stroke-dasharray: 60;
-  stroke-dashoffset: 60;
-  animation: draw-curve 1s cubic-bezier(0.19, 1, 0.22, 1) 0.4s both;
-}
-@media (prefers-reduced-motion: reduce) {
-  .pointer-hint-arrow {
-    animation: none;
-  }
-  .pointer-hint-curve {
-    animation: none;
-    stroke-dashoffset: 0;
-  }
-}
-
 @keyframes draw-curve {
   to {
     stroke-dashoffset: 0;

@@ -46,7 +46,6 @@ const en = {
       ' — Docker images on AWS ECS Fargate, CI/CD on GitHub Actions, DNS to TLS on Cloudflare. I like systems that deploy themselves and stay up.',
     ],
     portrait: 'Portrait — to be deployed',
-    portraitHint: 'goes color on hover',
     facts: [
       ['Location', 'Malatya, Türkiye'],
       ['University', 'Fırat University — Software Engineering, 2027'],
@@ -163,7 +162,6 @@ const tr: Dict = {
       " — AWS ECS Fargate'te Docker imajları, GitHub Actions'ta CI/CD, DNS'ten TLS'e Cloudflare. Kendi kendini deploy eden ve ayakta kalan sistemleri severim.",
     ],
     portrait: 'Portre — yakında yayında',
-    portraitHint: 'üzerine gelince renklenir',
     facts: [
       ['Konum', 'Malatya, Türkiye'],
       ['Üniversite', 'Fırat Üniversitesi — Yazılım Mühendisliği, 2027'],
