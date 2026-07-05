@@ -38,6 +38,32 @@ export default function About() {
               {t.about.p2[2]}
             </p>
           </Reveal>
+
+          {/* decorative flourish filling the whitespace below the bio, echoing back up at the headline */}
+          <Reveal delay={0.3} className="hidden md:block">
+            <svg
+              className="big-scribble mt-14 h-96 w-80"
+              viewBox="0 0 300 320"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                className="big-scribble-path"
+                d="M16 298C10 230 78 190 118 222C158 254 130 300 84 288C42 278 54 206 112 188C198 158 232 78 214 20"
+                stroke="#e8490f"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+              <path
+                className="big-scribble-head"
+                d="M214 20L232 42M214 20L192 36"
+                stroke="#e8490f"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Reveal>
         </div>
 
         <div className="md:col-span-4 md:col-start-9">

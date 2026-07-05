@@ -169,6 +169,29 @@
   }
 }
 
+/* large decorative flourish in About — draws itself once revealed */
+.big-scribble-path {
+  stroke-dasharray: 620;
+  stroke-dashoffset: 620;
+}
+.big-scribble-head {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+}
+.io-reveal.is-visible .big-scribble-path {
+  animation: draw-curve 1.4s cubic-bezier(0.19, 1, 0.22, 1) 0.15s both;
+}
+.io-reveal.is-visible .big-scribble-head {
+  animation: draw-curve 0.3s ease-out 1.4s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .big-scribble-path,
+  .big-scribble-head {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
 /* horizontal scroller without a visible scrollbar */
 .no-scrollbar {
   scrollbar-width: none;
