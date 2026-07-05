@@ -38,32 +38,6 @@ export default function About() {
               {t.about.p2[2]}
             </p>
           </Reveal>
-
-          {/* decorative flourish filling the whitespace below the bio — a loose hand-drawn line curling up toward the portrait */}
-          <Reveal delay={0.3} className="hidden md:block">
-            <svg
-              className="big-scribble mt-8 ml-auto h-96 w-80"
-              viewBox="0 0 300 320"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                className="big-scribble-path"
-                d="M30 260C70 280 100 230 70 190C40 150 0 160 10 110C20 60 90 40 140 60C180 76 170 110 210 100C240 92 230 60 260 40"
-                stroke="#e8490f"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <path
-                className="big-scribble-head"
-                d="M260 40L238 52M260 40L250 64"
-                stroke="#e8490f"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Reveal>
         </div>
 
         <div className="md:col-span-4 md:col-start-9">
@@ -90,6 +64,31 @@ export default function About() {
                     className="h-full w-full object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
                   />
                 </div>
+              </div>
+
+              {/* flight-path cue: departure marker curves up into the frame — fades once hovered */}
+              <div className="mt-4 flex items-end justify-end gap-3 transition-opacity duration-500 group-hover:opacity-0">
+                <svg className="h-12 w-16 shrink-0" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+                  <circle cx="58" cy="44" r="3" fill="#e8490f" />
+                  <path
+                    className="flight-path"
+                    d="M58 44C40 46 20 40 16 24C13 12 20 6 6 4"
+                    stroke="#e8490f"
+                    strokeWidth="2"
+                    strokeDasharray="4 5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M6 4L16 8M6 4L10 15"
+                    stroke="#e8490f"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="pb-1 font-mono text-xs font-bold tracking-[0.15em] text-ink uppercase">
+                  {t.about.portraitHint}
+                </span>
               </div>
             </div>
           </Reveal>
