@@ -38,6 +38,40 @@ export default function About() {
               {t.about.p2[2]}
             </p>
           </Reveal>
+
+          {/* hand-drawn annotation filling the whitespace — sweeps across toward the portrait */}
+          <Reveal delay={0.25} className="hidden md:block">
+            <div className="mt-14 flex items-end gap-5 lg:mt-16">
+              <span className="shrink-0 pb-1 font-mono text-xs font-bold tracking-[0.2em] text-ink uppercase">
+                {t.about.portraitHint}
+              </span>
+              <svg
+                className="-mr-4 h-64 w-full lg:-mr-8 lg:h-80"
+                viewBox="0 0 480 280"
+                fill="none"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path
+                  className="annotate-arrow-path"
+                  pathLength="100"
+                  d="M14 254C96 286 212 262 298 194C358 148 402 106 450 44"
+                  stroke="#e8490f"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                <path
+                  className="annotate-arrow-head"
+                  pathLength="100"
+                  d="M450 44L423 50M450 44L442 70"
+                  stroke="#e8490f"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </Reveal>
         </div>
 
         <div className="md:col-span-4 md:col-start-9">
@@ -64,31 +98,6 @@ export default function About() {
                     className="h-full w-full object-cover grayscale transition-[filter] duration-500 group-hover:grayscale-0"
                   />
                 </div>
-              </div>
-
-              {/* flight-path cue: departure marker curves up into the frame — fades once hovered */}
-              <div className="mt-4 flex items-end justify-end gap-3 transition-opacity duration-500 group-hover:opacity-0">
-                <svg className="h-12 w-16 shrink-0" viewBox="0 0 64 48" fill="none" aria-hidden="true">
-                  <circle cx="58" cy="44" r="3" fill="#e8490f" />
-                  <path
-                    className="flight-path"
-                    d="M58 44C40 46 20 40 16 24C13 12 20 6 6 4"
-                    stroke="#e8490f"
-                    strokeWidth="2"
-                    strokeDasharray="4 5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M6 4L16 8M6 4L10 15"
-                    stroke="#e8490f"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="pb-1 font-mono text-xs font-bold tracking-[0.15em] text-ink uppercase">
-                  {t.about.portraitHint}
-                </span>
               </div>
             </div>
           </Reveal>

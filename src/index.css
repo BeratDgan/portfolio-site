@@ -120,17 +120,30 @@
   transform: translateY(0);
 }
 
-/* portrait flight-path cue — marching dashes hint at the interaction */
-.flight-path {
-  animation: flight-dash 1.4s linear infinite;
+/* hand-drawn arrow across the About whitespace — draws itself once revealed */
+.annotate-arrow-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
 }
-@keyframes flight-dash {
+.annotate-arrow-head {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.io-reveal.is-visible .annotate-arrow-path {
+  animation: draw-curve 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s both;
+}
+.io-reveal.is-visible .annotate-arrow-head {
+  animation: draw-curve 0.3s ease-out 1.35s both;
+}
+@keyframes draw-curve {
   to {
-    stroke-dashoffset: -18;
+    stroke-dashoffset: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .flight-path {
+  .annotate-arrow-path,
+  .annotate-arrow-head {
+    stroke-dashoffset: 0;
     animation: none;
   }
 }
