@@ -16,6 +16,7 @@ const PROJECTS = [
     name: 'PrePath',
     tags: ['Python', 'Qdrant', 'RAG', 'LoRA / QLoRA'],
     repo: 'https://github.com/Ainterview-4/Big-Leap',
+    huggingface: 'https://huggingface.co/beratdgan/Qwen3-14B-Interview-Coach',
   },
   {
     index: '03',
@@ -103,14 +104,26 @@ export default function Projects() {
                 <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-mute">
                   {project.tags.join(' / ')}
                 </p>
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="border border-ink px-4 py-2 font-mono text-xs tracking-[0.15em] uppercase transition-colors hover:border-accent hover:bg-accent hover:text-ground"
-                >
-                  GitHub ↗
-                </a>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="border border-ink px-4 py-2 font-mono text-xs tracking-[0.15em] uppercase transition-colors hover:border-accent hover:bg-accent hover:text-ground"
+                  >
+                    GitHub ↗
+                  </a>
+                  {'huggingface' in project && (
+                    <a
+                      href={(project as any).huggingface}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="border border-ink px-4 py-2 font-mono text-xs tracking-[0.15em] uppercase transition-colors hover:border-accent hover:bg-accent hover:text-ground"
+                    >
+                      🤗 HuggingFace ↗
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}
