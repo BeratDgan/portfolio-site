@@ -39,36 +39,44 @@ export default function About() {
             </p>
           </Reveal>
 
-          {/* hand-drawn annotation filling the whitespace — sweeps across toward the portrait */}
+          {/* paper plane flying a dotted route from the label across the whitespace toward the portrait */}
           <Reveal delay={0.25} className="hidden md:block">
-            <div className="mt-14 flex items-end gap-5 lg:mt-16">
-              <span className="shrink-0 pb-1 font-mono text-xs font-bold tracking-[0.2em] text-ink uppercase">
+            <div className="mt-14 flex items-end gap-4 lg:mt-16">
+              <span className="shrink-0 pb-2 font-mono text-xs font-bold tracking-[0.2em] text-ink uppercase">
                 {t.about.portraitHint}
               </span>
               <svg
                 className="-mr-4 h-64 w-full lg:-mr-8 lg:h-80"
-                viewBox="0 0 480 280"
+                viewBox="0 0 520 300"
                 fill="none"
                 preserveAspectRatio="none"
                 aria-hidden="true"
               >
+                <mask id="flight-route-mask">
+                  <path
+                    className="flight-route-reveal"
+                    pathLength="100"
+                    d="M14 272C84 290 152 284 192 252C230 222 212 178 180 190C150 202 166 246 214 238C284 226 332 164 384 116C416 86 452 60 494 38"
+                    stroke="#fff"
+                    strokeWidth="10"
+                    strokeLinecap="round"
+                  />
+                </mask>
+                <circle cx="14" cy="272" r="4" fill="#e8490f" />
                 <path
-                  className="annotate-arrow-path"
-                  pathLength="100"
-                  d="M14 254C96 286 212 262 298 194C358 148 402 106 450 44"
+                  mask="url(#flight-route-mask)"
+                  d="M14 272C84 290 152 284 192 252C230 222 212 178 180 190C150 202 166 246 214 238C284 226 332 164 384 116C416 86 452 60 494 38"
                   stroke="#e8490f"
-                  strokeWidth="3"
+                  strokeWidth="2.5"
+                  strokeDasharray="0.5 11"
                   strokeLinecap="round"
                 />
-                <path
-                  className="annotate-arrow-head"
-                  pathLength="100"
-                  d="M450 44L423 50M450 44L442 70"
-                  stroke="#e8490f"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <g transform="translate(500 32) rotate(-30)">
+                  <g className="flight-plane">
+                    <path d="M22 0L-22 -12L-10 -1Z" fill="#e8490f" />
+                    <path d="M22 0L-10 -1L-14 12Z" fill="#e8490f" opacity="0.55" />
+                  </g>
+                </g>
               </svg>
             </div>
           </Reveal>

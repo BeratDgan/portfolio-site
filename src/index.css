@@ -120,31 +120,52 @@
   transform: translateY(0);
 }
 
-/* hand-drawn arrow across the About whitespace — draws itself once revealed */
-.annotate-arrow-path {
+/* paper-plane flight route in About — the dotted trail reveals itself, then the plane appears */
+.flight-route-reveal {
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
 }
-.annotate-arrow-head {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
+.io-reveal.is-visible .flight-route-reveal {
+  animation: draw-curve 1.8s cubic-bezier(0.45, 0, 0.3, 1) 0.2s both;
 }
-.io-reveal.is-visible .annotate-arrow-path {
-  animation: draw-curve 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s both;
+.flight-plane {
+  opacity: 0;
 }
-.io-reveal.is-visible .annotate-arrow-head {
-  animation: draw-curve 0.3s ease-out 1.35s both;
+.io-reveal.is-visible .flight-plane {
+  animation:
+    plane-in 0.4s ease-out 1.8s both,
+    plane-bob 3.4s ease-in-out 2.4s infinite;
 }
 @keyframes draw-curve {
   to {
     stroke-dashoffset: 0;
   }
 }
+@keyframes plane-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes plane-bob {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -4px);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
-  .annotate-arrow-path,
-  .annotate-arrow-head {
+  .flight-route-reveal {
     stroke-dashoffset: 0;
     animation: none;
+  }
+  .io-reveal.is-visible .flight-plane {
+    animation: none;
+    opacity: 1;
   }
 }
 
