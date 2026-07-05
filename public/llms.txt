@@ -1,0 +1,26 @@
+# Berat Doğan
+
+> Software engineering student (Fırat University, class of 2027) and DevOps Engineer Intern at Soliner. Builds backend and AI systems and ships them the way production demands: containerized with Docker, deployed through GitHub Actions CI/CD, running on AWS ECS Fargate behind Cloudflare DNS.
+
+Currently open to internships and junior software engineering / DevOps roles.
+
+## Background
+
+- Fırat University — B.S. Software Engineering, expected 2027, Elazığ, Turkey.
+- Erasmus+ exchange semester at the University of Maribor, Slovenia (Feb–Jul 2025).
+- DevOps Engineer Intern at Soliner (Jul 2026–present): containers, CI/CD pipelines, cloud infrastructure.
+
+## Projects
+
+- Trackruit — recruitment-tracking app built with Next.js and Supabase, containerized with Docker and deployed to AWS ECS Fargate behind an ALB, with GitHub Actions as the sole path to production.
+- PrePath — AI-powered technical interview simulator; retrieval-augmented generation over 40,000+ questions in Qdrant, with LoRA/QLoRA fine-tuned models. Built with a 4-person team; Berat served as Scrum Master.
+- Lyricly.tech — Spotify API web app; backend and full OAuth 2.0 authorization flow.
+- Live Streaming Platform — real-time broadcast backend on Node.js and Socket.io.
+
+## Links
+
+- Portfolio: https://beratdogan.me/
+- GitHub: https://github.com/BeratDgan
+- LinkedIn: https://www.linkedin.com/in/beratdgan/
+- Email: dgan.berat@gmail.com
+- CV (PDF): https://beratdogan.me/Berat_Dogan_CV.pdf
