@@ -7,7 +7,7 @@ const LINKS = [
 ] as const
 
 export default function Contact() {
-  const { t } = useI18n()
+  const { lang, t } = useI18n()
 
   return (
     <section id="contact" className="bg-ink px-6 pt-20 pb-6 text-ground md:px-10 md:pt-32">
@@ -28,7 +28,7 @@ export default function Contact() {
 
       <Reveal delay={0.15}>
         <a
-          href="/Berat_Dogan_CV.pdf"
+          href={lang === 'tr' ? '/Berat_Dogan_CV_TR.pdf' : '/Berat_Dogan_CV.pdf'}
           download
           className="group mt-14 flex max-w-xl items-center justify-between gap-6 border border-ground/30 px-6 py-5 transition-colors duration-300 hover:border-accent hover:bg-accent md:mt-16 md:px-8 md:py-6"
         >

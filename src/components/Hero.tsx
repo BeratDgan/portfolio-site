@@ -57,7 +57,7 @@ function LangToggle({ onDark = false }: { onDark?: boolean }) {
 }
 
 export default function Hero() {
-  const { t } = useI18n()
+  const { lang, t } = useI18n()
   const clock = useLocalClock()
   const nameRef = useRef<HTMLHeadingElement>(null)
   const closeBtnRef = useRef<HTMLButtonElement>(null)
@@ -271,7 +271,7 @@ export default function Hero() {
           {t.hero.openToWork}
         </span>
         <a
-          href="/Berat_Dogan_CV.pdf"
+          href={lang === 'tr' ? '/Berat_Dogan_CV_TR.pdf' : '/Berat_Dogan_CV.pdf'}
           download
           className="text-ink transition-colors hover:text-accent"
         >

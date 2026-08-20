@@ -234,7 +234,7 @@ const tr: Dict = {
     titleA: 'Gerçek bir şeyi',
     titleB: 'yayına alalım',
     cvTitle: "CV'yi indir",
-    cvMeta: 'PDF · İngilizce · 2 sayfa',
+    cvMeta: 'PDF · Türkçe · 2 sayfa',
     builtWith: "React + Vite — Cloudflare Pages'te yayında",
     backToTop: 'Başa dön ↑',
   },
