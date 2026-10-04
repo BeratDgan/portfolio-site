@@ -13,11 +13,10 @@ export default function Experience() {
       </Reveal>
 
       <div className="mt-14 grid gap-8 md:mt-16 md:grid-cols-12">
-        <Reveal className="md:col-span-8">
+        <Reveal className="md:col-span-7">
           <div className="border-l-2 border-accent pl-6 md:pl-8">
             <p className="flex items-center gap-2 font-mono text-[11px] tracking-[0.15em] uppercase text-mute">
               {t.experience.period}
-              <span className="cursor-blink inline-block h-3 w-[7px] bg-accent" aria-hidden="true" />
             </p>
             <div className="mt-4 flex items-center gap-4 md:gap-5">
               <img
@@ -35,7 +34,24 @@ export default function Experience() {
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-ink/75">
               {t.experience.summary}
             </p>
+            <ul className="mt-6 max-w-xl space-y-4 text-[15px] leading-relaxed text-ink/75">
+              {t.experience.bullets.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span aria-hidden="true" className="text-accent">—</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
+        </Reveal>
+        <Reveal delay={0.1} className="md:col-span-4 md:col-start-9">
+          <aside className="border-t border-ink pt-5">
+            <h3 className="font-mono text-xs tracking-[0.12em] uppercase">{t.experience.exposureLabel}</h3>
+            <p className="mt-4 text-sm leading-relaxed text-mute">{t.experience.exposure}</p>
+            <a href="#cloud-native" className="mt-6 inline-flex min-h-11 items-center border-b border-ink text-sm transition-colors hover:text-accent">
+              Cloud Native Order Platform <span aria-hidden="true" className="ml-2">↓</span>
+            </a>
+          </aside>
         </Reveal>
       </div>
     </section>

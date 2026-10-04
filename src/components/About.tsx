@@ -14,9 +14,9 @@ export default function About() {
       </Reveal>
 
       <div className="mt-14 grid gap-12 md:mt-16 md:grid-cols-12">
-        <div className="md:col-span-7">
+        <div className="min-w-0 md:col-span-7">
           <Reveal>
-            <h2 className="font-display text-4xl leading-[0.95] font-bold tracking-tight uppercase md:text-6xl">
+            <h2 className="font-display text-[clamp(1.75rem,9.2vw,2.25rem)] leading-[0.95] font-bold tracking-tight uppercase md:text-6xl">
               {t.about.titleA}
               <br />
               {t.about.titleB}<span className="text-accent">.</span>
@@ -82,7 +82,7 @@ export default function About() {
           </Reveal>
         </div>
 
-        <div className="md:col-span-4 md:col-start-9">
+        <div className="min-w-0 md:col-span-4 md:col-start-9">
           <Reveal delay={0.1}>
             {/* macOS Safari window frame around the portrait */}
             <div className="group relative">
@@ -93,7 +93,7 @@ export default function About() {
                   <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" aria-hidden="true" />
                   <span className="flex flex-1 justify-center">
                     <span className="bg-line/40 px-5 py-1 font-mono text-[10px] tracking-[0.1em] text-mute">
-                      berat.dev/portrait
+                      berat.jpg
                     </span>
                   </span>
                   <span className="w-[46px]" aria-hidden="true" />

@@ -39,17 +39,17 @@ function Letters({ text }: { text: string }) {
 function LangToggle({ onDark = false }: { onDark?: boolean }) {
   const { lang, setLang } = useI18n()
   const idle = onDark ? 'text-ground/50 hover:text-ground' : 'text-mute hover:text-ink'
-  const btn = (l: Lang) => `transition-colors ${lang === l ? 'text-accent' : idle}`
+  const btn = (l: Lang) => `min-h-11 min-w-11 transition-colors ${lang === l ? 'text-accent' : idle}`
 
   return (
-    <div className="flex items-center gap-1.5 font-mono text-xs tracking-[0.15em] uppercase">
-      <button type="button" aria-pressed={lang === 'en'} onClick={() => setLang('en')} className={btn('en')}>
+    <div className="flex shrink-0 items-center font-mono text-xs tracking-[0.15em] uppercase">
+      <button type="button" aria-label="English" aria-pressed={lang === 'en'} onClick={() => setLang('en')} className={btn('en')}>
         EN
       </button>
       <span aria-hidden="true" className={onDark ? 'text-ground/30' : 'text-line'}>
         /
       </span>
-      <button type="button" aria-pressed={lang === 'tr'} onClick={() => setLang('tr')} className={btn('tr')}>
+      <button type="button" aria-label="Türkçe" aria-pressed={lang === 'tr'} onClick={() => setLang('tr')} className={btn('tr')}>
         TR
       </button>
     </div>
@@ -61,6 +61,8 @@ export default function Hero() {
   const clock = useLocalClock()
   const nameRef = useRef<HTMLHeadingElement>(null)
   const closeBtnRef = useRef<HTMLButtonElement>(null)
+  const menuBtnRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLDialogElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
 
   const nav = [
@@ -73,21 +75,44 @@ export default function Hero() {
   ] as const
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    if (menuOpen) closeBtnRef.current?.focus()
+    if (!menuOpen) return
+    const menu = menuRef.current
+    const menuButton = menuBtnRef.current
+    const previousOverflow = document.body.style.overflow
+    const desktop = window.matchMedia('(min-width: 80rem)')
+    const closeOnDesktop = () => {
+      if (desktop.matches) setMenuOpen(false)
+    }
+
+    menu?.showModal()
+    document.body.style.overflow = 'hidden'
+    closeBtnRef.current?.focus()
+    desktop.addEventListener('change', closeOnDesktop)
+    closeOnDesktop()
+
     return () => {
-      document.body.style.overflow = ''
+      desktop.removeEventListener('change', closeOnDesktop)
+      menu?.close()
+      document.body.style.overflow = previousOverflow
+      if (!desktop.matches) menuButton?.focus({ preventScroll: true })
     }
   }, [menuOpen])
 
-  useEffect(() => {
-    if (!menuOpen) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false)
+  const handleMenuKeyDown = (event: React.KeyboardEvent<HTMLDialogElement>) => {
+    if (event.key !== 'Tab') return
+    const items = event.currentTarget.querySelectorAll<HTMLElement>('button:not([disabled]), a[href]')
+    const first = items[0]
+    const last = items[items.length - 1]
+    const active = document.activeElement
+
+    if (event.shiftKey && (active === first || active === event.currentTarget)) {
+      event.preventDefault()
+      last?.focus()
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault()
+      first?.focus()
     }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [menuOpen])
+  }
 
   // letters near the cursor lift slightly, falling off like a wave
   const handleNameMove = (e: React.MouseEvent) => {
@@ -118,11 +143,11 @@ export default function Hero() {
         style={{ '--d': '0.1s' } as React.CSSProperties}
       >
         <a href="#top" className="font-mono text-xs uppercase tracking-[0.2em]">
-          B—D<span className="text-mute"> / Portfolio</span>
+          B—D<span className="hidden text-mute min-[400px]:inline"> / Portfolio</span>
         </a>
 
-        <div className="flex items-center gap-6 md:gap-8">
-          <nav className="hidden md:flex md:gap-6" aria-label="Site">
+        <div className="flex items-center gap-3 sm:gap-6 xl:gap-8">
+          <nav className="hidden xl:flex xl:gap-6" aria-label="Site">
             {nav.map(([label, href]) => (
               <a
                 key={href}
@@ -133,14 +158,16 @@ export default function Hero() {
               </a>
             ))}
           </nav>
-          <span aria-hidden="true" className="hidden h-4 w-px bg-line md:block" />
+          <span aria-hidden="true" className="hidden h-4 w-px bg-line xl:block" />
           <LangToggle />
           <button
+            ref={menuBtnRef}
             type="button"
             aria-label={t.nav.openMenu}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(true)}
-            className="-mr-2 flex flex-col gap-1.5 p-2 md:hidden"
+            aria-controls="site-menu"
+            className="-mr-2 flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 p-2 xl:hidden"
           >
             <span className="block h-px w-6 bg-ink" />
             <span className="block h-px w-6 bg-ink" />
@@ -149,8 +176,15 @@ export default function Hero() {
       </header>
 
       {menuOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-ink px-6 py-5 text-ground md:hidden">
-          <div className="flex items-center justify-between">
+        <dialog
+          ref={menuRef}
+          id="site-menu"
+          aria-label={t.nav.menu}
+          onCancel={() => setMenuOpen(false)}
+          onKeyDown={handleMenuKeyDown}
+          className="fixed inset-0 z-50 m-0 h-dvh max-h-none w-screen max-w-none cursor-auto! flex-col overflow-y-auto border-0 bg-ink px-6 py-5 text-ground open:flex [&_*]:cursor-auto! [&_a]:cursor-pointer! [&_button]:cursor-pointer!"
+        >
+          <div className="flex shrink-0 items-center justify-between">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-ground/50">
               B—D / {t.nav.menu}
             </span>
@@ -159,13 +193,13 @@ export default function Hero() {
               type="button"
               aria-label={t.nav.closeMenu}
               onClick={() => setMenuOpen(false)}
-              className="-mr-2 p-2 font-mono text-sm"
+              className="-mr-2 min-h-11 min-w-11 p-2 font-mono text-sm"
             >
               ✕
             </button>
           </div>
 
-          <nav className="mt-14 flex flex-col" aria-label="Site">
+          <nav className="mt-10 mb-8 flex shrink-0 flex-col" aria-label="Site">
             {nav.map(([label, href], i) => (
               <a
                 key={href}
@@ -183,7 +217,7 @@ export default function Hero() {
           </nav>
 
           <div
-            className="fade-up mt-auto flex items-center justify-between border-t border-ground/20 pt-5"
+            className="fade-up mt-auto flex shrink-0 flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-ground/20 pt-5"
             style={{ '--d': '0.4s' } as React.CSSProperties}
           >
             <LangToggle onDark />
@@ -191,7 +225,7 @@ export default function Hero() {
               dgan.berat@gmail.com
             </a>
           </div>
-        </div>
+        </dialog>
       )}
 
       <div className="flex flex-1 flex-col justify-center py-12 md:py-10">
@@ -238,7 +272,7 @@ export default function Hero() {
             {t.hero.blurb}
           </p>
           <div
-            className="fade-up flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6 md:col-span-3 md:justify-end"
+            className="fade-up flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-6 md:col-span-3 md:flex-col md:items-end 2xl:flex-row 2xl:justify-end"
             style={{ '--d': '0.9s' } as React.CSSProperties}
           >
             <a
@@ -267,8 +301,8 @@ export default function Hero() {
         <span className="hidden md:block">38.36°N / 38.32°E — MALATYA, TR</span>
         <time aria-label={t.hero.localTime}>{clock} TRT</time>
         <span className="flex items-center gap-2 text-ink">
-          <span className="cursor-blink inline-block h-3 w-[7px] bg-accent" aria-hidden="true" />
-          {t.hero.openToWork}
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+          {t.hero.currentRole}
         </span>
         <a
           href={lang === 'tr' ? '/Berat_Dogan_CV_TR.pdf' : '/Berat_Dogan_CV.pdf'}

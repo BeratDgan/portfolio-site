@@ -1,4 +1,4 @@
-import { LangProvider } from './i18n'
+import { LangProvider } from './LangProvider'
 import ScrollProgress from './components/ScrollProgress'
 import SmoothCursor from './components/SmoothCursor'
 import Hero from './components/Hero'

@@ -3,12 +3,13 @@ import SectionLabel from './SectionLabel'
 import { useI18n } from '../i18n'
 
 const CERTIFICATES = [
-  ['Serverless', 'AWS Educate'],
+  ['Kubernetes Temelleri', 'Udemy · 08/2026'],
+  ['Getting Started with Serverless', 'AWS Educate'],
   ['Docker', 'DataCamp'],
   ['Kubernetes', 'DataCamp'],
   ['Linux 301', 'Turkcell Academy'],
   ['.NET Core', 'Patika.dev'],
-  ['Redis', 'Redis University'],
+  ['Get Started with Redis', 'Redis University'],
   ['Prompting Essentials', 'Google'],
 ] as const
 
@@ -59,7 +60,7 @@ export default function Path() {
               {CERTIFICATES.map(([name, issuer]) => (
                 <li
                   key={`${issuer}-${name}`}
-                  className="flex items-baseline justify-between gap-4 border-b border-line py-3"
+                  className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line py-3"
                 >
                   <span className="text-sm">{name}</span>
                   <span className="font-mono text-[11px] tracking-[0.15em] uppercase text-mute">

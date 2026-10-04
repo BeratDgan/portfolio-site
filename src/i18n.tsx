@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from 'react'
+import { createContext, useContext } from 'react'
 
 export type Lang = 'en' | 'tr'
 
@@ -12,9 +6,9 @@ const en = {
   nav: {
     about: 'About',
     experience: 'Experience',
-    stack: 'Stack',
+    stack: 'Tools',
     projects: 'Projects',
-    path: 'Path',
+    path: 'Education',
     contact: 'Contact',
     menu: 'Menu',
     openMenu: 'Open menu',
@@ -25,33 +19,33 @@ const en = {
     roleB: 'DevOps',
     roleC: 'Platform Engineering',
     blurb:
-      'I build backend and AI systems, then ship them the way production demands — containerized, behind a pipeline, on real cloud infrastructure. Class of 2027, open to internships and junior roles.',
+      "I'm a DevOps intern at Soliner and a software engineering student at Fırat University. My work focuses on Kubernetes, CI/CD, and cloud deployments on Azure and AWS.",
     viewProjects: 'View projects',
     getInTouch: 'Get in touch',
-    openToWork: 'Open to work',
+    currentRole: 'DevOps intern @ Soliner',
     localTime: 'Local time in Türkiye',
   },
   about: {
-    meta: "Who's shipping",
-    titleA: 'Backend roots,',
-    titleB: 'cloud trajectory',
+    meta: 'A little context',
+    titleA: 'From backend',
+    titleB: 'to cloud infrastructure',
     p1: [
-      "I'm a software engineering student at Fırat University (class of 2027), with an Erasmus+ semester at the University of Maribor, Slovenia. I started out in backend and AI engineering — ",
-      'RAG systems, vector databases, OAuth 2.0',
-      ' — and the more I shipped, the more I cared about what happens after the code works.',
+      "I'm studying software engineering at Fırat University, with graduation expected in 2027. In 2025, I spent an Erasmus+ semester at the University of Maribor in Slovenia. My earlier projects involved ",
+      'RAG systems, vector databases, and OAuth 2.0',
+      ', from a technical interview simulator to a Spotify-based web app.',
     ],
     p2: [
-      "That's where I'm heading now: ",
-      'containers, pipelines and cloud infrastructure',
-      ' — Docker images on AWS ECS Fargate, CI/CD on GitHub Actions, DNS to TLS on Cloudflare. I like systems that deploy themselves and stay up.',
+      "These days, I'm working on ",
+      'Kubernetes, delivery pipelines, and cloud infrastructure',
+      '. At Soliner, my internship project brought together Terraform, AKS, and GitOps. For Trackruit, I deployed a Next.js application on AWS ECS Fargate and automated its releases with GitHub Actions.',
     ],
-    portrait: 'Portrait — to be deployed',
+    portrait: 'Berat Doğan',
     portraitHint: 'hover the photo — reveals color',
     facts: [
       ['Location', 'Malatya, Türkiye'],
-      ['University', 'Fırat University — Software Engineering, 2027'],
+      ['University', 'Fırat University — Software Engineering, expected 2027'],
       ['Exchange', 'University of Maribor — Erasmus+, 2025'],
-      ['Languages', 'Turkish (native) · English (professional)'],
+      ['Languages', 'Turkish (native) · English (B2)'],
     ],
   },
   experience: {
@@ -60,46 +54,77 @@ const en = {
     role: 'DevOps Engineer Intern',
     period: 'Jul 2026 — Present',
     summary:
-      'Hands-on with the delivery side of production systems — containers, CI/CD pipelines and cloud infrastructure.',
+      'Working on container deployments and Kubernetes configurations, alongside an AKS internship project.',
+    bullets: [
+      'Worked on containerization and Kubernetes deployment configurations in a BSS environment.',
+      'Built reusable Helm charts with health probes and environment-specific values; tested Istio routing with an 80/20 traffic split in a lab application.',
+      'Set up Prometheus metrics, Grafana dashboards, Loki logs, and Alertmanager email notifications for the AKS project; investigated deployment, networking, and secret configuration issues.',
+    ],
+    exposureLabel: 'Team workflows',
+    exposure: 'Gained exposure to Jenkins, Argo CD, Bitbucket, Harbor, and AWS EKS/ECR through the team’s workflows.',
   },
   stack: {
-    meta: 'Tools in production',
+    meta: 'Tools I work with',
     title: 'What I build with',
-    groups: ['Cloud & delivery', 'Runtimes & languages', 'Data & realtime'],
+    groups: ['Cloud & infrastructure', 'Containers & delivery', 'Operations & security', 'Development & data'],
   },
   projects: {
-    meta: '4 builds',
-    title: 'Built & shipped',
+    meta: '5 projects',
+    title: 'Selected projects',
     scrollPrev: 'Previous project',
     scrollNext: 'Next project',
+    more: 'Other projects',
+    featured: {
+      name: 'Cloud Native Order Platform',
+      context: 'Soliner internship project · 2026',
+      description: 'An order platform on Azure Kubernetes Service, built during my internship to work through infrastructure provisioning, GitOps delivery, and day-to-day cluster operations.',
+      details: [
+        {
+          title: 'Infrastructure & services',
+          body: 'Provisioned AKS with Terraform and deployed Node.js services and PostgreSQL with persistent storage using Helm.',
+        },
+        {
+          title: 'From commit to deployment',
+          body: 'Added tests, Helm validation, and Trivy image scanning to GitHub Actions. Published images to ACR using OIDC and configured Argo CD to sync deployments from Git.',
+        },
+        {
+          title: 'Secrets & traffic',
+          body: 'Connected Azure Key Vault through External Secrets Operator and Workload Identity. Added NetworkPolicies and configured Istio-based canary delivery with Argo Rollouts.',
+        },
+        {
+          title: 'Scaling & restore checks',
+          body: 'Configured HPA and recommendation-only VPA. Used Velero with CSI snapshots and verified restored PostgreSQL data files in a separate namespace.',
+        },
+      ],
+    },
     items: [
       {
         role: 'End-to-end build',
         description:
-          'Recruitment-tracking app taken from first commit to production, solo: Next.js and Supabase, packaged with Docker and running on AWS ECS Fargate behind an ALB with ACM-issued HTTPS and Cloudflare DNS. GitHub Actions is the only path to production — every merge ships itself, no manual deploys.',
+          'A job application tracker built with Next.js and Supabase. I containerized the app and deployed it to AWS ECS Fargate through ECR, with ALB, ACM HTTPS, and Cloudflare DNS. GitHub Actions handles builds and deployments; IAM, Secrets Manager, CloudWatch, and SNS/EventBridge support access, secrets, and monitoring.',
       },
       {
-        role: 'Scrum Master — team of 4',
+        role: 'Technical team lead / Scrum Master',
         description:
-          'AI-powered technical interview simulator, built by a team of four with me as Scrum Master. Generic question banks make prep shallow, so answers are grounded in retrieval-augmented generation over 40,000+ questions in Qdrant — with LoRA/QLoRA fine-tuning to adapt models without retraining from scratch.',
+          'An academic technical interview simulator built by a team of four in 2024–2025. I led the team and planned sprints, built a Dockerized RAG backend with Qdrant, indexed 40,000+ records, and fine-tuned open-source models with LoRA/QLoRA.',
       },
       {
         role: 'Backend & auth',
         description:
-          'Web app built on the Spotify API. I owned the backend and the complete OAuth 2.0 authorization flow — token exchange, refresh and session handling, implemented end to end against the spec.',
+          'A web app using the Spotify API. I implemented the backend and OAuth 2.0 authorization flow, including token exchange, refresh, and session handling.',
       },
       {
         role: 'Realtime backend',
         description:
-          'Real-time broadcast backend on Node.js and Socket.io — live rooms, viewers and events over persistent connections. Built to learn what realtime actually demands: connection lifecycle, rooms and event fan-out.',
+          'A real-time broadcast backend built with Node.js and Socket.io. I worked on connection lifecycle, live rooms, viewers, and event delivery over persistent connections.',
       },
     ],
   },
   path: {
-    meta: 'Education & proof',
+    meta: 'Education & training',
     title: 'The route so far',
     education: 'Education',
-    certificates: 'Certificates',
+    certificates: 'Courses & training',
     entries: [
       {
         period: '2023 - 2027 (expected)',
@@ -114,10 +139,10 @@ const en = {
     ],
   },
   contact: {
-    titleA: "Let's ship",
-    titleB: 'something real',
+    titleA: 'Get in',
+    titleB: 'touch',
     cvTitle: 'Download CV',
-    cvMeta: 'PDF · English · 2 pages',
+    cvMeta: 'PDF · English · 1 page',
     builtWith: 'React + Vite — deployed on Cloudflare Pages',
     backToTop: 'Back to top ↑',
   },
@@ -129,9 +154,9 @@ const tr: Dict = {
   nav: {
     about: 'Hakkımda',
     experience: 'Deneyim',
-    stack: 'Stack',
+    stack: 'Araçlar',
     projects: 'Projeler',
-    path: 'Yol',
+    path: 'Eğitim',
     contact: 'İletişim',
     menu: 'Menü',
     openMenu: 'Menüyü aç',
@@ -142,33 +167,33 @@ const tr: Dict = {
     roleB: 'DevOps',
     roleC: 'Platform Mühendisliği',
     blurb:
-      "Backend ve yapay zekâ sistemleri kuruyor, sonra onları production'ın gerektirdiği gibi gönderiyorum — konteynerize edilmiş, pipeline arkasında, gerçek bulut altyapısında. 2027 mezunuyum; staj ve junior rollere açığım.",
+      "Soliner'de DevOps stajyeriyim. Kubernetes, CI/CD ve Azure / AWS altyapılarıyla çalışıyorum; Fırat Üniversitesi'nde yazılım mühendisliği okuyorum.",
     viewProjects: 'Projelere git',
     getInTouch: 'İletişime geç',
-    openToWork: 'Çalışmaya açık',
+    currentRole: 'Soliner’de DevOps stajyeri',
     localTime: "Türkiye'de yerel saat",
   },
   about: {
-    meta: 'Gönderen kim',
-    titleA: 'Backend kökler,',
-    titleB: 'bulut rotası',
+    meta: 'Biraz hakkımda',
+    titleA: 'Backend’den',
+    titleB: 'bulut altyapısına',
     p1: [
-      "Fırat Üniversitesi'nde yazılım mühendisliği öğrencisiyim (2027), Erasmus+ ile bir dönem Maribor Üniversitesi'nde (Slovenya) okudum. Backend ve yapay zekâ mühendisliğiyle başladım — ",
-      'RAG sistemleri, vektör veritabanları, OAuth 2.0',
-      ' — ve gönderdikçe, kod çalıştıktan sonra olanları daha çok önemser oldum.',
+      "Fırat Üniversitesi'nde yazılım mühendisliği okuyorum; 2027'de mezun olmayı planlıyorum. 2025'te Erasmus+ ile bir dönem Slovenya'daki Maribor Üniversitesi'nde okudum. Önceki projelerimde ",
+      'RAG sistemleri, vektör veritabanları ve OAuth 2.0',
+      ' ile çalıştım; teknik mülakat simülatörü ve Spotify tabanlı bir web uygulaması geliştirdim.',
     ],
     p2: [
-      'Şimdi yöneldiğim yer orası: ',
-      "konteynerler, pipeline'lar ve bulut altyapısı",
-      " — AWS ECS Fargate'te Docker imajları, GitHub Actions'ta CI/CD, DNS'ten TLS'e Cloudflare. Kendi kendini deploy eden ve ayakta kalan sistemleri severim.",
+      'Şu sıralar ağırlıklı olarak ',
+      'Kubernetes, CI/CD ve bulut altyapısıyla',
+      " çalışıyorum. Soliner'deki staj projemde Terraform, AKS ve GitOps'u bir araya getirdim. Trackruit'te ise Next.js uygulamasını AWS ECS Fargate'e taşıyıp yayın sürecini GitHub Actions ile otomatikleştirdim.",
     ],
-    portrait: 'Portre — yakında yayında',
+    portrait: 'Berat Doğan',
     portraitHint: 'fotoğrafın üzerine gel — renklenir',
     facts: [
       ['Konum', 'Malatya, Türkiye'],
-      ['Üniversite', 'Fırat Üniversitesi — Yazılım Mühendisliği, 2027'],
+      ['Üniversite', 'Fırat Üniversitesi — Yazılım Mühendisliği, beklenen 2027'],
       ['Değişim', 'Maribor Üniversitesi — Erasmus+, 2025'],
-      ['Diller', 'Türkçe (ana dil) · İngilizce (profesyonel)'],
+      ['Diller', 'Türkçe (ana dil) · İngilizce (B2)'],
     ],
   },
   experience: {
@@ -177,46 +202,77 @@ const tr: Dict = {
     role: 'DevOps Mühendisi Stajyeri',
     period: 'Tem 2026 — Devam ediyor',
     summary:
-      "Production sistemlerinin teslimat tarafında saha deneyimi — konteynerler, CI/CD pipeline'ları ve bulut altyapısı.",
+      "Konteyner ve Kubernetes yapılandırmaları üzerinde çalışıyor, staj projemi AKS üzerinde geliştiriyorum.",
+    bullets: [
+      'BSS ortamında uygulamaların konteynerleştirilmesi ve Kubernetes dağıtım yapılandırmaları üzerinde çalıştım.',
+      'Sağlık kontrolleri ve ortama özel değerlerle tekrar kullanılabilir Helm chart’ları hazırladım; laboratuvar uygulamasında Istio ile 80/20 trafik dağılımını denedim.',
+      'AKS projesinde Prometheus metrikleri, Grafana panoları, Loki logları ve Alertmanager e-posta bildirimlerini kurdum; dağıtım, ağ ve secret yapılandırma sorunlarını inceledim.',
+    ],
+    exposureLabel: 'Ekipte tanıdığım iş akışları',
+    exposure: 'Ekibin Jenkins, Argo CD, Bitbucket, Harbor ve AWS EKS/ECR iş akışlarını tanıma fırsatı buldum.',
   },
   stack: {
-    meta: "Production'daki araçlar",
-    title: 'Neyle inşa ediyorum',
-    groups: ['Bulut & teslimat', "Runtime'lar & diller", 'Veri & gerçek zamanlı'],
+    meta: 'Kullandığım araçlar',
+    title: 'Çalıştığım teknolojiler',
+    groups: ['Bulut ve altyapı', 'Konteynerler ve dağıtım', 'Operasyon ve güvenlik', 'Geliştirme ve veri'],
   },
   projects: {
-    meta: '4 proje',
-    title: 'Kuruldu & yayında',
+    meta: '5 proje',
+    title: 'Projelerden seçmeler',
     scrollPrev: 'Önceki proje',
     scrollNext: 'Sonraki proje',
+    more: 'Diğer projeler',
+    featured: {
+      name: 'Cloud Native Order Platform',
+      context: 'Soliner staj projesi · 2026',
+      description: 'Stajım sırasında Azure Kubernetes Service üzerinde geliştirdiğim sipariş platformu. Altyapının kurulumundan GitOps ile dağıtıma ve küme operasyonlarına kadar farklı aşamalarda çalıştım.',
+      details: [
+        {
+          title: 'Altyapı ve servisler',
+          body: 'AKS altyapısını Terraform ile oluşturdum. Node.js servislerini ve kalıcı depolama kullanan PostgreSQL’i Helm ile dağıttım.',
+        },
+        {
+          title: 'Commit’ten dağıtıma',
+          body: 'GitHub Actions’a test, Helm doğrulama ve Trivy imaj taraması ekledim. OIDC ile ACR’a imaj gönderdim; Argo CD’yi Git’teki dağıtım tanımlarıyla senkronize çalışacak şekilde yapılandırdım.',
+        },
+        {
+          title: 'Secret yönetimi ve trafik',
+          body: 'Azure Key Vault’u External Secrets Operator ve Workload Identity ile bağladım. NetworkPolicy kuralları ekledim; Istio ve Argo Rollouts ile canary dağıtımını yapılandırdım.',
+        },
+        {
+          title: 'Ölçekleme ve geri yükleme',
+          body: 'HPA’yı ve yalnızca öneri üreten VPA’yı yapılandırdım. Velero ve CSI snapshot’larıyla yedekleme yaptım; ayrı bir namespace’e geri yüklenen PostgreSQL veri dosyalarını doğruladım.',
+        },
+      ],
+    },
     items: [
       {
         role: 'Uçtan uca',
         description:
-          "İlk commit'ten production'a tek başıma götürdüğüm işe alım takip uygulaması: Next.js ve Supabase, Docker ile paketlenip AWS ECS Fargate'te çalışıyor — önünde ALB, ACM'den HTTPS, Cloudflare DNS. Production'a giden tek yol GitHub Actions — her merge kendini yayınlar, manuel deploy yok.",
+          'Next.js ve Supabase ile geliştirdiğim iş başvurusu takip uygulaması. Docker ile paketleyip ECR üzerinden AWS ECS Fargate’e dağıttım; ALB, ACM HTTPS ve Cloudflare DNS’i yapılandırdım. GitHub Actions ile build ve dağıtımı otomatikleştirdim; IAM, Secrets Manager, CloudWatch ve SNS/EventBridge ile erişim, secret ve izleme ayarlarını yaptım.',
       },
       {
-        role: 'Scrum Master — 4 kişilik ekip',
+        role: 'Teknik ekip lideri / Scrum Master',
         description:
-          "Dört kişilik ekiple kurduğumuz, Scrum Master'lığını üstlendiğim yapay zekâ destekli teknik mülakat simülatörü. Hazır soru bankaları yüzeysel kaldığı için cevaplar Qdrant üzerinde 40.000+ soruyla retrieval-augmented generation'a dayanıyor — modelleri sıfırdan eğitmeden uyarlamak için de LoRA/QLoRA fine-tuning.",
+          '2024–2025 döneminde dört kişilik ekiple geliştirdiğimiz akademik teknik mülakat simülatörü. Ekibe liderlik edip sprintleri planladım; Docker üzerinde çalışan RAG backend’ini geliştirdim, Qdrant’ta 40.000+ kayıt indeksledim ve açık kaynak modelleri LoRA/QLoRA ile uyarladım.',
       },
       {
         role: 'Backend & auth',
         description:
-          "Spotify API üzerine kurulu web uygulaması. Backend ve uçtan uca OAuth 2.0 yetkilendirme akışı bendeydi — token değişimi, refresh ve oturum yönetimi dahil, spesifikasyona göre kuruldu.",
+          'Spotify API kullanan bir web uygulaması. Backend’i ve OAuth 2.0 yetkilendirme akışını geliştirdim; token değişimi, yenileme ve oturum yönetimini uyguladım.',
       },
       {
         role: 'Gerçek zamanlı backend',
         description:
-          "Node.js ve Socket.io ile gerçek zamanlı yayın backend'i — kalıcı bağlantılar üzerinden canlı odalar, izleyiciler ve olaylar. Gerçek zamanlının asıl zor kısmını öğrenmek için kuruldu: bağlantı yaşam döngüsü, odalar ve event dağıtımı.",
+          'Node.js ve Socket.io ile geliştirdiğim gerçek zamanlı yayın backend’i. Kalıcı bağlantılar üzerinden bağlantı yaşam döngüsü, canlı odalar, izleyiciler ve olay iletimi üzerinde çalıştım.',
       },
     ],
   },
   path: {
-    meta: 'Eğitim & belgeler',
+    meta: 'Eğitim ve kurslar',
     title: 'Bugüne kadarki rota',
     education: 'Eğitim',
-    certificates: 'Sertifikalar',
+    certificates: 'Kurslar ve eğitimler',
     entries: [
       {
         period: '2023 - 2027 (beklenen)',
@@ -231,16 +287,16 @@ const tr: Dict = {
     ],
   },
   contact: {
-    titleA: 'Gerçek bir şeyi',
-    titleB: 'yayına alalım',
+    titleA: 'İletişimde',
+    titleB: 'kalalım',
     cvTitle: "CV'yi indir",
-    cvMeta: 'PDF · Türkçe · 2 sayfa',
+    cvMeta: 'PDF · Türkçe · 1 sayfa',
     builtWith: "React + Vite — Cloudflare Pages'te yayında",
     backToTop: 'Başa dön ↑',
   },
 }
 
-const dictionaries: Record<Lang, Dict> = { en, tr }
+export const dictionaries: Record<Lang, Dict> = { en, tr }
 
 interface I18nValue {
   lang: Lang
@@ -248,27 +304,7 @@ interface I18nValue {
   setLang: (lang: Lang) => void
 }
 
-const I18nContext = createContext<I18nValue | null>(null)
-
-export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>(() => {
-    const saved = localStorage.getItem('lang')
-    if (saved === 'en' || saved === 'tr') return saved
-    return navigator.language.toLowerCase().startsWith('tr') ? 'tr' : 'en'
-  })
-
-  useEffect(() => {
-    localStorage.setItem('lang', lang)
-    // keeps CSS text-transform: uppercase mapping i → İ correctly in Turkish
-    document.documentElement.lang = lang
-  }, [lang])
-
-  return (
-    <I18nContext.Provider value={{ lang, t: dictionaries[lang], setLang }}>
-      {children}
-    </I18nContext.Provider>
-  )
-}
+export const I18nContext = createContext<I18nValue | null>(null)
 
 export function useI18n() {
   const ctx = useContext(I18nContext)

@@ -6,6 +6,10 @@ import {
   siGit,
   siGithubactions,
   siLinux,
+  siKubernetes,
+  siHelm,
+  siTerraform,
+  siGrafana,
   siMongodb,
   siNextdotjs,
   siNodedotjs,
@@ -26,8 +30,13 @@ interface Tech {
 
 /* simple-icons no longer ships an AWS mark, so it runs as a wordmark */
 const ROW_A: Tech[] = [
+  { name: 'Azure' },
   { name: 'AWS' },
+  { name: 'Kubernetes', icon: siKubernetes },
+  { name: 'Terraform', icon: siTerraform },
+  { name: 'Helm', icon: siHelm },
   { name: 'Docker', icon: siDocker },
+  { name: 'Grafana', icon: siGrafana },
   { name: 'GitHub Actions', icon: siGithubactions },
   { name: 'Cloudflare', icon: siCloudflare },
   { name: 'Linux', icon: siLinux },
@@ -47,9 +56,10 @@ const ROW_B: Tech[] = [
 ]
 
 const GROUP_ITEMS = [
-  ['AWS — ECS Fargate, ALB, ACM', 'Docker', 'GitHub Actions', 'Cloudflare', 'Linux'],
-  ['Node.js', 'TypeScript', 'Python', '.NET', 'Next.js'],
-  ['PostgreSQL', 'MongoDB', 'Redis', 'Qdrant', 'Socket.io'],
+  ['Azure — AKS, ACR, Key Vault', 'AWS — ECS Fargate, ECR, IAM', 'ALB, ACM, Secrets Manager', 'Terraform', 'Linux, Cloudflare'],
+  ['Docker, Kubernetes, Helm', 'Git, GitHub Actions', 'Argo CD, Argo Rollouts', 'Istio'],
+  ['Prometheus, Grafana', 'Loki, Alertmanager', 'CloudWatch, SNS, EventBridge', 'Trivy, External Secrets Operator', 'Velero'],
+  ['Node.js, JavaScript, TypeScript', 'Python, C# / .NET Core', 'Next.js, REST API', 'PostgreSQL, MongoDB', 'Redis, Qdrant, Socket.io'],
 ] as const
 
 function TechItem({ tech }: { tech: Tech }) {
@@ -59,9 +69,7 @@ function TechItem({ tech }: { tech: Tech }) {
         <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0 fill-current" aria-hidden="true">
           <path d={tech.icon.path} />
         </svg>
-      ) : (
-        <span className="font-display text-xl leading-none font-bold tracking-tight">{tech.name}</span>
-      )}
+      ) : null}
       <span className="font-mono text-xs tracking-[0.15em] uppercase">{tech.name}</span>
       <span className="pl-8 text-accent" aria-hidden="true">
         /
@@ -114,7 +122,7 @@ export default function Stack() {
         </div>
       </Reveal>
 
-      <div className="mt-14 grid gap-10 px-6 md:mt-16 md:grid-cols-3 md:px-10">
+      <div className="mt-14 grid gap-10 px-6 sm:grid-cols-2 md:mt-16 md:px-10 xl:grid-cols-4">
         {GROUP_ITEMS.map((items, i) => (
           <Reveal key={t.stack.groups[i]} delay={i * 0.08}>
             <h3 className="border-b border-ink pb-3 font-mono text-xs tracking-[0.2em] uppercase">
