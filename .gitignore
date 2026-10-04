@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+cv/legacy-preview.pdf
 *.local
 
 # Editor directories and files
