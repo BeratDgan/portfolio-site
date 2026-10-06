@@ -68,3 +68,16 @@ Soliner'de DevOps stajyeriyim. Kubernetes, CI/CD ve Azure / AWS altyapılarıyla
 - Kurulumda bildirilen üç dolaylı bağımlılık güvenlik uyarısı uyumlu yamalarla giderildi; son npm audit fix çıktısı 0 açık bildirdi.
 
 Push sonrasında `README.md` içindeki Cloudflare ve Search Console adımlarını tamamlayıp aynı HTTP kontrollerini canlı alan adında tekrarlayın.
+
+## Cloudflare temiz kurulum düzeltmesi — 6 Ekim 2026
+
+İlk deploy, build komutuna ulaşmadan npm 10.9.2 ile `EUSAGE` verdi: kök kilit ağacında `@emnapi/runtime@1.11.3` ve `@emnapi/core@1.11.3` eksikti. Önceki kontroller mevcut node_modules üzerinden build çalıştırdığı için bu eksikliği yakalamamıştı.
+
+- Hata, temiz bir geçici checkout'ta Node 22.16.0 ve npm 10.9.2 ile birebir yeniden üretildi.
+- Kilit dosyası aynı npm sürümüyle, kurulu node_modules olmadan `npm install --package-lock-only --ignore-scripts --include=optional` kullanılarak tamamlandı. Eksik kök ve paket içi WASM bağımlılık kayıtları eklendi; mevcut paket sürümleri değişmedi.
+- Ardından gerçek `npm ci` (kurulum betikleri etkin): başarılı, 83 paket kuruldu.
+- Aynı Node/npm ile build: başarılı; EN/TR statik sayfalar, Markdown ve iki URL içeren sitemap üretildi.
+- Lint temiz; 53/53 test geçti.
+- Ek `npm ci --dry-run --os=linux --cpu=x64 --ignore-scripts` kilit doğrulaması geçti. Bu Linux üzerinde gerçek build çalıştırıldığı anlamına gelmez; tam build macOS'ta yapıldı.
+
+Düzeltme yalnızca yerel commit olarak kaydedildi. Kullanıcının push'undan sonra Cloudflare'ın gerçek Production deploy sonucu kontrol edilmelidir.
