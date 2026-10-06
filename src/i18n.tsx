@@ -301,7 +301,6 @@ export const dictionaries: Record<Lang, Dict> = { en, tr }
 interface I18nValue {
   lang: Lang
   t: Dict
-  setLang: (lang: Lang) => void
 }
 
 export const I18nContext = createContext<I18nValue | null>(null)

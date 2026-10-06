@@ -1,35 +1,10 @@
+import { PROJECTS, FEATURED_REPO } from '../content'
 import { useRef } from 'react'
 import Reveal from './Reveal'
 import SectionLabel from './SectionLabel'
 import { useI18n } from '../i18n'
 
-const PROJECTS = [
-  {
-    index: '01',
-    name: 'Trackruit',
-    tags: ['Next.js', 'Supabase', 'Docker', 'AWS ECS Fargate', 'GitHub Actions'],
-    repo: 'https://github.com/BeratDgan/Trackruit',
-  },
-  {
-    index: '02',
-    name: 'PrePath',
-    tags: ['Python', 'Qdrant', 'RAG', 'LoRA / QLoRA'],
-    repo: 'https://github.com/Ainterview-4/Big-Leap',
-    huggingface: 'https://huggingface.co/beratdgan/Qwen3-14B-Interview-Coach',
-  },
-  {
-    index: '03',
-    name: 'Lyricly.tech',
-    tags: ['Node.js', 'Spotify API', 'OAuth 2.0'],
-    repo: 'https://github.com/BeratDgan/lyric-thing',
-  },
-  {
-    index: '04',
-    name: 'Live Streaming Platform',
-    tags: ['Node.js', 'Socket.io', 'WebSockets'],
-    repo: 'https://github.com/BeratDgan/streamhub',
-  },
-] as const
+
 
 export default function Projects() {
   const { t } = useI18n()
@@ -66,7 +41,7 @@ export default function Projects() {
                 </h3>
                 <p className="mt-4 font-mono text-xs leading-relaxed text-mute">{t.projects.featured.context}</p>
                 <p className="mt-6 max-w-md text-base leading-relaxed text-ink/75">{t.projects.featured.description}</p>
-                <a href="https://github.com/BeratDgan/cloud-native-order-platform" target="_blank" rel="noreferrer" className="mt-8 inline-flex min-h-11 items-center border border-ink px-4 py-3 font-mono text-xs uppercase tracking-[0.12em] transition-colors hover:bg-ink hover:text-ground">
+                <a href={FEATURED_REPO} target="_blank" rel="noreferrer" className="mt-8 inline-flex min-h-11 items-center border border-ink px-4 py-3 font-mono text-xs uppercase tracking-[0.12em] transition-colors hover:bg-ink hover:text-ground">
                   GitHub <span aria-hidden="true" className="ml-2">↗</span>
                 </a>
                 <div className="mt-10 border-t border-line pt-5 font-mono text-xs leading-loose text-mute" aria-label="GitOps">

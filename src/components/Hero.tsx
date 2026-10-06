@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { LANGUAGE_PATHS } from '../content'
 import { useI18n, type Lang } from '../i18n'
 
 const timeFormat = new Intl.DateTimeFormat('en-GB', {
@@ -10,14 +11,15 @@ const timeFormat = new Intl.DateTimeFormat('en-GB', {
 })
 
 function useLocalClock() {
-  const [now, setNow] = useState(() => new Date())
+  const [now, setNow] = useState<Date | null>(null)
 
   useEffect(() => {
+    setNow(new Date())
     const id = setInterval(() => setNow(new Date()), 1000)
     return () => clearInterval(id)
   }, [])
 
-  return timeFormat.format(now)
+  return now ? timeFormat.format(now) : '--:--:--'
 }
 
 function Letters({ text }: { text: string }) {
@@ -37,21 +39,21 @@ function Letters({ text }: { text: string }) {
 }
 
 function LangToggle({ onDark = false }: { onDark?: boolean }) {
-  const { lang, setLang } = useI18n()
+  const { lang } = useI18n()
   const idle = onDark ? 'text-ground/50 hover:text-ground' : 'text-mute hover:text-ink'
-  const btn = (l: Lang) => `min-h-11 min-w-11 transition-colors ${lang === l ? 'text-accent' : idle}`
+  const btn = (l: Lang) => `inline-flex min-h-11 min-w-11 items-center justify-center transition-colors ${lang === l ? 'text-accent' : idle}`
 
   return (
     <div className="flex shrink-0 items-center font-mono text-xs tracking-[0.15em] uppercase">
-      <button type="button" aria-label="English" aria-pressed={lang === 'en'} onClick={() => setLang('en')} className={btn('en')}>
+      <a href={LANGUAGE_PATHS.en} hrefLang="en" lang="en" aria-label="English" aria-current={lang === 'en' ? 'page' : undefined} className={btn('en')}>
         EN
-      </button>
+      </a>
       <span aria-hidden="true" className={onDark ? 'text-ground/30' : 'text-line'}>
         /
       </span>
-      <button type="button" aria-label="Türkçe" aria-pressed={lang === 'tr'} onClick={() => setLang('tr')} className={btn('tr')}>
+      <a href={LANGUAGE_PATHS.tr} hrefLang="tr" lang="tr" aria-label="Türkçe" aria-current={lang === 'tr' ? 'page' : undefined} className={btn('tr')}>
         TR
-      </button>
+      </a>
     </div>
   )
 }
@@ -167,13 +169,17 @@ export default function Hero() {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(true)}
             aria-controls="site-menu"
-            className="-mr-2 flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 p-2 xl:hidden"
+            className="js-only -mr-2 flex min-h-11 min-w-11 flex-col items-center justify-center gap-1.5 p-2 xl:hidden"
           >
             <span className="block h-px w-6 bg-ink" />
             <span className="block h-px w-6 bg-ink" />
           </button>
         </div>
       </header>
+
+      <nav className="static-nav flex flex-wrap gap-4 py-4 text-sm xl:hidden" aria-label={t.nav.menu}>
+        {nav.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
+      </nav>
 
       {menuOpen && (
         <dialog
@@ -236,6 +242,7 @@ export default function Hero() {
           onMouseLeave={handleNameLeave}
           className="font-display text-[clamp(3.5rem,18vw,15rem)] leading-[0.85] font-bold tracking-[-0.04em] uppercase"
         >
+          <span className="sr-only">Berat Doğan</span>
           <span aria-hidden="true" className="reveal" style={{ '--d': '0.15s' } as React.CSSProperties}>
             <span>
               <Letters text="Berat" />
@@ -299,7 +306,7 @@ export default function Hero() {
         style={{ '--d': '1.05s' } as React.CSSProperties}
       >
         <span className="hidden md:block">38.36°N / 38.32°E — MALATYA, TR</span>
-        <time aria-label={t.hero.localTime}>{clock} TRT</time>
+        <time className="js-only" aria-label={t.hero.localTime}>{clock} TRT</time>
         <span className="flex items-center gap-2 text-ink">
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
           {t.hero.currentRole}

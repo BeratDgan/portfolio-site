@@ -1,17 +1,9 @@
+import { CERTIFICATES } from '../content'
 import Reveal from './Reveal'
 import SectionLabel from './SectionLabel'
 import { useI18n } from '../i18n'
 
-const CERTIFICATES = [
-  ['Kubernetes Temelleri', 'Udemy · 08/2026'],
-  ['Getting Started with Serverless', 'AWS Educate'],
-  ['Docker', 'DataCamp'],
-  ['Kubernetes', 'DataCamp'],
-  ['Linux 301', 'Turkcell Academy'],
-  ['.NET Core', 'Patika.dev'],
-  ['Get Started with Redis', 'Redis University'],
-  ['Prompting Essentials', 'Google'],
-] as const
+
 
 export default function Path() {
   const { t } = useI18n()

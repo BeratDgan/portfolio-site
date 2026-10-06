@@ -1,3 +1,4 @@
+import { GROUP_ITEMS } from '../content'
 import type { SimpleIcon } from 'simple-icons'
 import {
   siCloudflare,
@@ -55,12 +56,7 @@ const ROW_B: Tech[] = [
   { name: 'Git', icon: siGit },
 ]
 
-const GROUP_ITEMS = [
-  ['Azure — AKS, ACR, Key Vault', 'AWS — ECS Fargate, ECR, IAM', 'ALB, ACM, Secrets Manager', 'Terraform', 'Linux, Cloudflare'],
-  ['Docker, Kubernetes, Helm', 'Git, GitHub Actions', 'Argo CD, Argo Rollouts', 'Istio'],
-  ['Prometheus, Grafana', 'Loki, Alertmanager', 'CloudWatch, SNS, EventBridge', 'Trivy, External Secrets Operator', 'Velero'],
-  ['Node.js, JavaScript, TypeScript', 'Python, C# / .NET Core', 'Next.js, REST API', 'PostgreSQL, MongoDB', 'Redis, Qdrant, Socket.io'],
-] as const
+
 
 function TechItem({ tech }: { tech: Tech }) {
   return (

@@ -1,3 +1,4 @@
+import type { Lang } from './i18n'
 import { LangProvider } from './LangProvider'
 import ScrollProgress from './components/ScrollProgress'
 import SmoothCursor from './components/SmoothCursor'
@@ -9,9 +10,9 @@ import Projects from './components/Projects'
 import Path from './components/Path'
 import Contact from './components/Contact'
 
-export default function App() {
+export default function App({ lang }: { lang: Lang }) {
   return (
-    <LangProvider>
+    <LangProvider lang={lang}>
       <ScrollProgress />
       <SmoothCursor />
       <main id="top">

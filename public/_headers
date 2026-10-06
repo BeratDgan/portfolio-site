@@ -1,0 +1,12 @@
+/en.md
+  Content-Type: text/markdown; charset=utf-8
+  Content-Language: en
+  Link: <https://beratdogan.me/>; rel="canonical"
+  X-Content-Type-Options: nosniff
+/tr.md
+  Content-Type: text/markdown; charset=utf-8
+  Content-Language: tr
+  Link: <https://beratdogan.me/tr/>; rel="canonical"
+  X-Content-Type-Options: nosniff
+/llms.txt
+  Content-Type: text/plain; charset=utf-8

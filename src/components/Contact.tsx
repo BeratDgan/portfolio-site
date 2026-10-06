@@ -1,10 +1,8 @@
+import { LINKS } from '../content'
 import Reveal from './Reveal'
 import { useI18n } from '../i18n'
 
-const LINKS = [
-  ['GitHub', 'https://github.com/BeratDgan'],
-  ['LinkedIn', 'https://www.linkedin.com/in/beratdgan/'],
-] as const
+
 
 export default function Contact() {
   const { lang, t } = useI18n()

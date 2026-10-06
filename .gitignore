@@ -23,3 +23,5 @@ cv/legacy-preview.pdf
 *.njsproj
 *.sln
 *.sw?
+
+.wrangler/
