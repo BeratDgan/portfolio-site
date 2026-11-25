@@ -1,10 +1,24 @@
 import { PROJECTS, FEATURED_REPO } from '../content'
 import { useRef } from 'react'
+import { siAppstore, siGithub } from 'simple-icons'
 import Reveal from './Reveal'
 import SectionLabel from './SectionLabel'
 import { useI18n } from '../i18n'
 
+function ProjectLinkIcon({ label }: { label: string }) {
+  if (label === 'Hugging Face') {
+    return <span aria-hidden="true" className="shrink-0 text-sm leading-none">🤗</span>
+  }
 
+  const icon = label === 'App Store' ? siAppstore : label === 'GitHub' ? siGithub : undefined
+  if (!icon) return null
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="size-3.5 shrink-0 fill-current">
+      <path d={icon.path} />
+    </svg>
+  )
+}
 
 export default function Projects() {
   const { t } = useI18n()
@@ -127,9 +141,11 @@ export default function Projects() {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`${label} — ${project.name}`}
-                      className="inline-flex min-h-11 items-center border border-ink px-4 py-2 font-mono text-xs tracking-[0.15em] uppercase transition-colors hover:border-ink hover:bg-ink hover:text-ground"
+                      className="inline-flex min-h-11 items-center gap-2 border border-ink px-4 py-2 font-mono text-xs tracking-[0.15em] whitespace-nowrap uppercase transition-colors hover:border-ink hover:bg-ink hover:text-ground"
                     >
-                      {label} <span aria-hidden="true" className="ml-2">↗</span>
+                      <ProjectLinkIcon label={label} />
+                      {label}
+                      <span aria-hidden="true">↗</span>
                     </a>
                   ))}
                 </div>
