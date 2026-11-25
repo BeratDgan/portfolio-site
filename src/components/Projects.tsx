@@ -120,25 +120,18 @@ export default function Projects() {
                   {project.tags.join(' / ')}
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <a
-                    href={project.repo}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`${project.name} — GitHub`}
-                    className="inline-flex min-h-11 items-center border border-ink px-4 py-2 font-mono text-xs tracking-[0.15em] uppercase transition-colors hover:border-ink hover:bg-ink hover:text-ground"
-                  >
-                    GitHub ↗
-                  </a>
-                  {'huggingface' in project && (
+                  {project.links.map(([label, url]) => (
                     <a
-                      href={project.huggingface}
+                      key={url}
+                      href={url}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label={`${label} — ${project.name}`}
                       className="inline-flex min-h-11 items-center border border-ink px-4 py-2 font-mono text-xs tracking-[0.15em] uppercase transition-colors hover:border-ink hover:bg-ink hover:text-ground"
                     >
-                      Hugging Face ↗
+                      {label} <span aria-hidden="true" className="ml-2">↗</span>
                     </a>
-                  )}
+                  ))}
                 </div>
               </div>
             </article>

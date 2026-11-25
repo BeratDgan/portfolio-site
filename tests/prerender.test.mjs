@@ -19,8 +19,16 @@ for (const lang of ['en', 'tr']) {
     }
     assert.ok(html.includes(`type="text/markdown" href="${origin}/${lang}.md"`))
     for (const section of ['about', 'experience', 'stack', 'projects', 'path', 'contact']) assert.ok(html.includes(`id="${section}"`))
-    for (const title of ['Cloud Native Order Platform', 'Trackruit', 'PrePath', 'Lyricly.tech', 'Live Streaming Platform']) {
+    for (const title of ['Cloud Native Order Platform', 'BookFluent', 'Trackruit', 'PrePath', 'Lyricly.tech', 'Live Streaming Platform']) {
       assert.ok(html.includes(title)); assert.ok(md.includes(title))
+    }
+    const bookFluent = md.split('### BookFluent\n')[1].split('\n### ')[0]
+    for (const [label, url] of [
+      ['bookfluent.app', 'https://bookfluent.app/'],
+      ['App Store', 'https://apps.apple.com/us/app/bookfluent-read-translate/id6826640399'],
+    ]) {
+      assert.ok(html.includes(`href="${url}"`))
+      assert.ok(bookFluent.includes(`[${label}](${url})`))
     }
     assert.ok(md.startsWith('# Berat Doğan\n'))
     assert.ok(md.includes(t.hero.blurb))

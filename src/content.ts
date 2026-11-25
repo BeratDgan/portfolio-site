@@ -7,28 +7,39 @@ export const FEATURED_REPO = 'https://github.com/BeratDgan/cloud-native-order-pl
 export const PROJECTS = [
   {
     index: '01',
-    name: 'Trackruit',
-    tags: ['Next.js', 'Supabase', 'Docker', 'AWS ECS Fargate', 'GitHub Actions'],
-    repo: 'https://github.com/BeratDgan/Trackruit',
+    name: 'BookFluent',
+    tags: ['iPhone', 'iPad', 'Mac'],
+    links: [
+      ['bookfluent.app', 'https://bookfluent.app/'],
+      ['App Store', 'https://apps.apple.com/us/app/bookfluent-read-translate/id6826640399'],
+    ],
   },
   {
     index: '02',
-    name: 'PrePath',
-    tags: ['Python', 'Qdrant', 'RAG', 'LoRA / QLoRA'],
-    repo: 'https://github.com/Ainterview-4/Big-Leap',
-    huggingface: 'https://huggingface.co/beratdgan/Qwen3-14B-Interview-Coach',
+    name: 'Trackruit',
+    tags: ['Next.js', 'Supabase', 'Docker', 'AWS ECS Fargate', 'GitHub Actions'],
+    links: [['GitHub', 'https://github.com/BeratDgan/Trackruit']],
   },
   {
     index: '03',
-    name: 'Lyricly.tech',
-    tags: ['Node.js', 'Spotify API', 'OAuth 2.0'],
-    repo: 'https://github.com/BeratDgan/lyric-thing',
+    name: 'PrePath',
+    tags: ['Python', 'Qdrant', 'RAG', 'LoRA / QLoRA'],
+    links: [
+      ['GitHub', 'https://github.com/Ainterview-4/Big-Leap'],
+      ['Hugging Face', 'https://huggingface.co/beratdgan/Qwen3-14B-Interview-Coach'],
+    ],
   },
   {
     index: '04',
+    name: 'Lyricly.tech',
+    tags: ['Node.js', 'Spotify API', 'OAuth 2.0'],
+    links: [['GitHub', 'https://github.com/BeratDgan/lyric-thing']],
+  },
+  {
+    index: '05',
     name: 'Live Streaming Platform',
     tags: ['Node.js', 'Socket.io', 'WebSockets'],
-    repo: 'https://github.com/BeratDgan/streamhub',
+    links: [['GitHub', 'https://github.com/BeratDgan/streamhub']],
   },
 ] as const
 

@@ -69,7 +69,7 @@ const en = {
     groups: ['Cloud & infrastructure', 'Containers & delivery', 'Operations & security', 'Development & data'],
   },
   projects: {
-    meta: '5 projects',
+    meta: '6 projects',
     title: 'Selected projects',
     scrollPrev: 'Previous project',
     scrollNext: 'Next project',
@@ -98,6 +98,11 @@ const en = {
       ],
     },
     items: [
+      {
+        role: 'Personal project',
+        description:
+          'I built BookFluent for people learning a language through books. Tap a word to see what it means without leaving the page. With Premium, you can save the word with its original sentence and review it later with flashcards.',
+      },
       {
         role: 'End-to-end build',
         description:
@@ -217,7 +222,7 @@ const tr: Dict = {
     groups: ['Bulut ve altyapı', 'Konteynerler ve dağıtım', 'Operasyon ve güvenlik', 'Geliştirme ve veri'],
   },
   projects: {
-    meta: '5 proje',
+    meta: '6 proje',
     title: 'Projelerden seçmeler',
     scrollPrev: 'Önceki proje',
     scrollNext: 'Sonraki proje',
@@ -246,6 +251,11 @@ const tr: Dict = {
       ],
     },
     items: [
+      {
+        role: 'Kişisel proje',
+        description:
+          'BookFluent’i kitap okuyarak dil öğrenenler için geliştirdim. Okurken bilmediğin bir kelimeye dokunup sayfadan ayrılmadan anlamına bakabiliyorsun. Premium’da kelimeyi geçtiği cümleyle kaydedip daha sonra kelime kartlarıyla tekrar edebiliyorsun.',
+      },
       {
         role: 'Uçtan uca',
         description:

@@ -100,8 +100,8 @@ export function renderMarkdown(lang: Lang) {
     `[GitHub](${FEATURED_REPO})`, '',
   ]
   PROJECTS.forEach((project, i) => {
-    lines.push(`### ${project.name}`, '', t.projects.items[i].role, '', t.projects.items[i].description, '', project.tags.join(' / '), '', `[GitHub](${project.repo})`, '')
-    if ('huggingface' in project) lines.push(`[Hugging Face](${project.huggingface})`, '')
+    lines.push(`### ${project.name}`, '', t.projects.items[i].role, '', t.projects.items[i].description, '', project.tags.join(' / '), '')
+    for (const [label, url] of project.links) lines.push(`[${label}](${url})`, '')
   })
   lines.push(`## ${t.stack.title}`, '')
   GROUP_ITEMS.forEach((items, i) => lines.push(`### ${t.stack.groups[i]}`, '', ...items.map((item) => `- ${item}`), ''))
