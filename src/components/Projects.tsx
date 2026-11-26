@@ -130,7 +130,7 @@ export default function Projects() {
                 {t.projects.items[i].description}
               </p>
               <div className="mt-auto flex flex-col items-start gap-5 pt-10">
-                <p className="font-mono text-[11px] tracking-[0.15em] uppercase text-mute">
+                <p lang="en" className="font-mono text-[11px] tracking-[0.15em] uppercase text-mute">
                   {project.tags.join(' / ')}
                 </p>
                 <div className="flex flex-wrap gap-3">
